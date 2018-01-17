@@ -37,8 +37,8 @@ export default class LandingPage extends React.Component {
           fontSize: 20
         }}>The donkey was exactly halfway between two identical bales of hay.  Because it couldn't choose which one to eat, it starved to death.</Text>
         <Image style={{
-          height: 175,
-          width: 450,
+          height: 155,
+          width: 300,
           marginLeft: 'auto',
           marginRight: 'auto'
         }} source={require('./img/bottom.png')} />

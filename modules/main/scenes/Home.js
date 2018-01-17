@@ -12,36 +12,36 @@ var { signOut } = auth;
 
 class Home extends React.Component {
     constructor(){
-        super();
-        this.state = { }
+      super();
+      this.state = { }
     }
 
     onSignOut() {
-        this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
+      this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
     }
 
     onSuccess() {
-        Actions.replace("Auth")
+      Actions.replace("Auth")
     }
 
     onError(error) {
-        Alert.alert('Oops!', error.message);
+      Alert.alert('Oops!', error.message);
     }
 
     render() {
-        return (
-            <View style={styles.container}>
-                <Button
-                    raised
-                    title={'LOG OUT'}
-                    borderRadius={4}
-                    backgroundColor={color.main}
-                    containerViewStyle={styles.buttonContainer}
-                    buttonStyle={{}} //optional
-                    textStyle={styles.buttonText}
-                    onPress={this.onSignOut.bind(this)}/>
-            </View>
-        );
+      return (
+        <View style={styles.container}>
+          <Button
+            raised
+            title={'LOG OUT'}
+            borderRadius={4}
+            backgroundColor={color.main}
+            containerViewStyle={styles.buttonContainer}
+            buttonStyle={{}} //optional
+            textStyle={styles.buttonText}
+            onPress={this.onSignOut.bind(this)}/>
+        </View>
+      );
     }
 }
 

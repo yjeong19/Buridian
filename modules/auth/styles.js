@@ -61,8 +61,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginHorizontal: 20,
     }
-
-
 });
 
 

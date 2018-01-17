@@ -32,24 +32,24 @@ export default class extends React.Component {
     }
 
     render() {
-        if (!this.state.isReady)
-            return <Splash/>
+      if (!this.state.isReady)
+          return <Splash/>
 
-        return (
-            <Router>
-                <Scene key="root" hideNavBar>
-                    <Stack key="Auth" initial={!this.state.isLoggedIn}>
-                        <Scene key="Welcome" component={Welcome} title="Welcome" initial={true} hideNavBar/>
-                        <Scene key="Register" component={Register} title="Register"/>
-                        <Scene key="Login" component={Login} title="Login"/>
-                        <Scene key="ForgotPassword" component={ForgotPassword} title="ForgotPassword"/>
-                    </Stack>
+      return (
+        <Router>
+          <Scene key="root" hideNavBar>
+            <Stack key="Auth" initial={!this.state.isLoggedIn}>
+              <Scene key="Welcome" component={Welcome} title="Welcome" initial={true} hideNavBar/>
+              <Scene key="Register" component={Register} title="Register"/>
+              <Scene key="Login" component={Login} title="Login"/>
+              <Scene key="ForgotPassword" component={ForgotPassword} title="ForgotPassword"/>
+            </Stack>
 
-                    <Stack key="Main" initial={this.state.isLoggedIn}>
-                        <Scene key="Home" component={Home} title="Home" initial={true} type={ActionConst.REPLACE}/>
-                    </Stack>
-                </Scene>
-            </Router>
-        )
+            <Stack key="Main" initial={this.state.isLoggedIn}>
+              <Scene key="Home" component={Home} title="Home" initial={true} type={ActionConst.REPLACE}/>
+            </Stack>
+          </Scene>
+        </Router>
+      )
     }
 }
