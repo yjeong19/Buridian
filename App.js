@@ -10,8 +10,13 @@ export default class App extends React.Component {
     return (
       <Container style={{ backgroundColor: '#e35141' }}>
         <HeaderComponent />
+<<<<<<< HEAD
         {/* <LandingPage /> */}
         {/* <DecisionSection /> */}
+=======
+        <LandingPage />
+        {/*<DecisionSection />*/}
+>>>>>>> 9d8866fed3e1186ced90b65e61329aea27275132
       </Container>
     );
   }

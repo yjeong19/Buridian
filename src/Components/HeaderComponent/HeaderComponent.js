@@ -12,10 +12,16 @@ export default class HeaderComponent extends Component {
                     </Body>
                 </Header>
               <View style={{flexDirection: "row", justifyContent: 'center'}}>
-                <Button rounded dark>
+                <Button
+                  rounded
+                  dark
+                  onPress={() => alert('You pressed the Login button')}>
                   <Text style={{color:'white'}}>Login</Text>
                 </Button>
-                <Button rounded light>
+                <Button
+                  rounded
+                  light
+                  onPress={() => alert('You pressed the Sign Up button')}>
                   <Text style={{color:'black'}}>Sign Up</Text>
                 </Button>
               </View>
