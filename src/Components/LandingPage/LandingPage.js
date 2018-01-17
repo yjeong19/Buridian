@@ -3,9 +3,7 @@ import { Text, View, Image } from 'react-native';
 import { Container, Button } from 'native-base';
 
 export default class LandingPage extends React.Component {
-  constructor () {
-    super();
-  }
+
 
   render() {
     return (

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { View, Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 'native-base';
+import API from '../../Utils/API'
 
 
 export default class HeaderComponent extends Component {

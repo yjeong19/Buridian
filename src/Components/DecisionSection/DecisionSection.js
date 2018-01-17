@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {Image} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
+import API from '../../Utils/API'
 
 
 
 export default class DecisionSection extends Component{
+    
     render(){
+    const test = API.getRestaurant;
+    const DecisionImage = this.props.image
+        // console.log(this.props)
+        console.log(test,"righht here");
         return(
             <Container>
             {/* <Header /> */}
@@ -13,7 +19,7 @@ export default class DecisionSection extends Component{
                     <Card>
                         <CardItem>
                             <Left>
-                                <Thumbnail source={{uri: 'https://picsum.photos/200/300/?random'}} />
+                                <Thumbnail source={{uri: DecisionImage}} />
                                 <Body>
                                     {/* THIS IS WHERE THE RESTAURANT NAME SHOULD GO */}
                                     <Text>NativeBase</Text>
@@ -23,7 +29,7 @@ export default class DecisionSection extends Component{
                             </Left>
                         </CardItem>
                         <CardItem cardBody>
-                            <Image source={{uri: 'https://picsum.photos/200/300/?random'}} style={{height: 200, width: null, flex: 1}}/>
+                            <Image source={{uri: DecisionImage}} style={{height: 200, width: null, flex: 1}}/>
                         </CardItem>
                         <CardItem>
                             <Left>
