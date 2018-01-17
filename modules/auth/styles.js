@@ -4,7 +4,9 @@ import {padding, color, fontSize, misc} from "../../styles/Theme"
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgb(59,70,79)'
+        backgroundColor: '#e35141',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     wrapper:{

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { Container, Button } from 'native-base';
+import styles from '../../styles';
 
 export default class LandingPage extends React.Component {
   constructor () {
@@ -9,19 +10,18 @@ export default class LandingPage extends React.Component {
 
   render() {
     return (
-      <Container>
-        <View style={{
-          flex: .25,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text style={{fontWeight: 'bold', fontSize: 30}}>Welcome to Buridian</Text>
+      <Container style={styles.container}>
+        <Text style={{
+            fontWeight: 'bold',
+            fontSize: 30,
+          }}>
+          Welcome to Buridian</Text>
         <Image style={{
           height: 135,
           width: 230,
           marginLeft: 'auto',
           marginRight: 'auto'
-        }} source={require('../../img/donkey.png')} />
+        }} source={require('./img/donkey.png')} />
         <Text style={{
           fontFamily: 'Baskerville',
           fontSize: 20
@@ -31,7 +31,7 @@ export default class LandingPage extends React.Component {
           width: 230,
           marginLeft: 'auto',
           marginRight: 'auto'
-        }} source={require('../../img/hay.png')} />
+        }} source={require('./img/hay.png')} />
         <Text style={{
           fontFamily: 'Baskerville',
           fontSize: 20
@@ -41,13 +41,12 @@ export default class LandingPage extends React.Component {
           width: 450,
           marginLeft: 'auto',
           marginRight: 'auto'
-        }} source={require('../../img/bottom.png')} />
+        }} source={require('./img/bottom.png')} />
         <Text style={{
           fontFamily: 'Baskerville',
           fontSize: 20
           }}>Don't be an ass...let Buridian choose where you eat your next meal.
         </Text>
-        </View>
       </Container>
     );
   }
