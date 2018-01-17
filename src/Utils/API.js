@@ -16,7 +16,7 @@ export default {
         //   // do something with new state
         // });
         console.log(responseJson);
-       return responseJson;
+       return responseJson.Poster;
       })
       .catch((error) => {
         console.error(error);

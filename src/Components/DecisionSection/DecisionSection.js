@@ -8,10 +8,10 @@ import API from '../../Utils/API'
 export default class DecisionSection extends Component{
     
     render(){
-    const test = API.getRestaurant;
+    // const test = API.getRestaurant;
     const DecisionImage = this.props.image
         // console.log(this.props)
-        console.log(test,"righht here");
+        console.log(API.getRestaurant, "righht here");
         return(
             <Container>
             {/* <Header /> */}

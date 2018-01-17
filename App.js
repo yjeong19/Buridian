@@ -23,13 +23,34 @@ export default class App extends React.Component {
       this.setState({url: image})
       })
 
+    // this.HeaderComponent.handleLogin();
+  }
+
+  handleLogin = ()=>{
+    let newImage = API.getRestaurant._55;
+    // alert('fuck you');
+    alert(newImage);
+    console.log(newImage._55);
+
+    this.setState({
+      url: newImage
+    })
+  }
+
+  handleSignUp = ()=>{
+    this.setState({url: 'https://picsum.photos/200/300/?random'})
   }
   
   
+
   render() {
     return (
       <Container style={{ backgroundColor: '#e35141' }}>
-        <HeaderComponent />
+        <HeaderComponent 
+        login={this.handleLogin}
+        signUp = {this.handleSignUp}
+        />
+        
         {/* <LandingPage /> */}
         <DecisionSection image={this.state.url}/>
 
