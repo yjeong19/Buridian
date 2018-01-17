@@ -14,7 +14,7 @@ export default class App extends React.Component {
   }
   
   componentDidMount(){
-    fetch('https://www.omdbapi.com/?t=frozen&apikey=trilogy')
+    fetch('https://www.omdbapi.com/?t=deadpool&apikey=trilogy')
     .then((response) => response.json())
     .then((responseJson) => {
       // const responsejson = response.json().then
