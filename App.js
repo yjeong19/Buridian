@@ -11,7 +11,7 @@ export default class App extends React.Component {
       <Container style={{ backgroundColor: '#e35141' }}>
         <HeaderComponent />
         {/* <LandingPage /> */}
-        <DecisionSection />
+        {/* <DecisionSection /> */}
       </Container>
     );
   }
