@@ -1,11 +1,13 @@
 import React from 'react';
-var { View, StyleSheet, Alert } = require('react-native');
+var { View, StyleSheet, Alert, Text } = require('react-native');
 
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
-import { color } from "../../../styles/Theme"
+import { color } from "../../../styles/Theme";
+import DashboardWrapper from "../components/DashboardWrapper";
+import DecisionSection from "../components/DecisionSection";
 
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
@@ -31,15 +33,15 @@ class Home extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Button
-            raised
-            title={'LOG OUT'}
-            borderRadius={4}
-            backgroundColor={color.main}
-            containerViewStyle={styles.buttonContainer}
-            buttonStyle={{}} //optional
-            textStyle={styles.buttonText}
-            onPress={this.onSignOut.bind(this)}/>
+            <Button
+              raised
+              title={'LOG OUT'}
+              borderRadius={4}
+              backgroundColor={color.main}
+              containerViewStyle={styles.buttonContainer}
+              buttonStyle={{}} //optional
+              textStyle={styles.buttonText}
+              onPress={this.onSignOut.bind(this)}/>
         </View>
       );
     }
