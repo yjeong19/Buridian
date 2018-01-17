@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import { View, Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 'native-base';
 
 
 export default class HeaderComponent extends Component {
@@ -7,20 +7,18 @@ export default class HeaderComponent extends Component {
         return(
             <Container>
                 <Header>
-                    <Left>
-                        <Button transparent>
-                            <Icon name='arrow-back' />
-                        </Button>
-                    </Left>
                     <Body>
-                        <Title>Buridans</Title>
+                        <Title>Buridian</Title>
                     </Body>
-                    <Right>
-                        <Button transparent>
-                            <Icon name='menu' />
-                        </Button>
-                    </Right>
                 </Header>
+              <View style={{flexDirection: "row", justifyContent: 'center'}}>
+                <Button rounded dark>
+                  <Text style={{color:'white'}}>Login</Text>
+                </Button>
+                <Button rounded light>
+                  <Text style={{color:'black'}}>Sign Up</Text>
+                </Button>
+              </View>
             </Container>
         )
     }
