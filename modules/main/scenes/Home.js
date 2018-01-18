@@ -6,17 +6,49 @@ import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
 import { color } from "../../../styles/Theme";
-import DashboardWrapper from "../components/DashboardWrapper";
+// import DashboardWrapper from "../components/DashboardWrapper";
 import DecisionSection from "../components/DecisionSection";
 
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
 
 class Home extends React.Component {
-    constructor(){
-      super();
-      this.state = { }
-    }
+    // constructor(){
+    //   super();
+    //   this.state = { }
+    // }
+    state={
+        url: 'https://picsum.photos/200'
+      }
+      
+      componentDidMount(){
+        fetch('https://www.omdbapi.com/?t=deadpool&apikey=trilogy')
+        .then((response) => response.json())
+        .then((responseJson) => {
+    // const responsejson = response.json().then
+            console.log(responseJson.Poster, 'this is our response')
+            const image = responseJson.Poster
+            this.setState({url: image})
+        })
+    
+        // this.HeaderComponent.handleLogin();
+      }
+    
+      handleLogin = ()=>{
+        let newImage = API.getRestaurant._55;
+        // alert('fuck you');
+        alert(newImage);
+        console.log(newImage._55);
+    
+        this.setState({
+          url: newImage
+        })
+      }
+    
+      handleSignUp = ()=>{
+        this.setState({url: 'https://picsum.photos/200/300/?random'})
+      }
+
 
     onSignOut() {
       this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
@@ -42,6 +74,8 @@ class Home extends React.Component {
               buttonStyle={{}} //optional
               textStyle={styles.buttonText}
               onPress={this.onSignOut.bind(this)}/>
+
+            <DecisionSection image={this.state.url} style={{flex: 1}}/>
         </View>
       );
     }

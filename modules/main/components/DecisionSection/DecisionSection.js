@@ -1,22 +1,28 @@
 import React, {Component} from 'react';
-import {Image} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
-import API from '../../Utils/API'
+import API from '../../../../Utils/API'
 
 
 
 export default class DecisionSection extends Component{
     
     render(){
-    const test = API.getRestaurant;
-    const DecisionImage = this.props.image
-        // console.log(this.props)
+
+        const styles = StyleSheet.create({
+            image: {
+                flex: 1,
+                // NEED TO FIND A WAY TO MAKE WIDTH 100% SCREEN 
+                width: 320,
+            }
+        });
+        const test = API.getRestaurant;
+        const DecisionImage = this.props.image
         console.log(test,"righht here");
         return(
             <Container>
-            {/* <Header /> */}
                 <Content>
-                    <Card>
+                    <Card style={styles.image}>
                         <CardItem>
                             <Left>
                                 <Thumbnail source={{uri: DecisionImage}} />
@@ -29,7 +35,7 @@ export default class DecisionSection extends Component{
                             </Left>
                         </CardItem>
                         <CardItem cardBody>
-                            <Image source={{uri: DecisionImage}} style={{height: 200, width: null, flex: 1}}/>
+                            <Image source={{uri: DecisionImage}} style={{height: 200, width: 200, flex: 1}}/>
                         </CardItem>
                         <CardItem>
                             <Left>
@@ -41,7 +47,7 @@ export default class DecisionSection extends Component{
                             </Left>
                             <Body>
                                 <Button transparent>
-                                    <Icon active name="chatbubbles" />
+                                    <Icon active name='chevron-thin-down' />
                                     <Text>4 Comments</Text>
                                 </Button>
                             </Body>
