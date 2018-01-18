@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import { color } from "../../../styles/Theme";
 // import DashboardWrapper from "../components/DashboardWrapper";
 import DecisionSection from "../components/DecisionSection";
+import YesOrNoButtons from "../components/YesOrNoButtons";
 
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
@@ -20,7 +21,7 @@ class Home extends React.Component {
     state={
         url: 'https://picsum.photos/200'
       }
-      
+
       componentDidMount(){
         fetch('https://www.omdbapi.com/?t=deadpool&apikey=trilogy')
         .then((response) => response.json())
@@ -30,21 +31,21 @@ class Home extends React.Component {
             const image = responseJson.Poster
             this.setState({url: image})
         })
-    
+
         // this.HeaderComponent.handleLogin();
       }
-    
+
       handleLogin = ()=>{
         let newImage = API.getRestaurant._55;
         // alert('fuck you');
         alert(newImage);
         console.log(newImage._55);
-    
+
         this.setState({
           url: newImage
         })
       }
-    
+
       handleSignUp = ()=>{
         this.setState({url: 'https://picsum.photos/200/300/?random'})
       }
@@ -65,17 +66,16 @@ class Home extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-            <Button
-              raised
-              title={'LOG OUT'}
-              borderRadius={4}
-              backgroundColor={color.main}
-              containerViewStyle={styles.buttonContainer}
-              buttonStyle={{}} //optional
-              textStyle={styles.buttonText}
-              onPress={this.onSignOut.bind(this)}/>
-
-            <DecisionSection image={this.state.url} style={{flex: 1}}/>
+          <Button
+            raised
+            title={'LOG OUT'}
+            borderRadius={4}
+            backgroundColor={color.main}
+            containerViewStyle={styles.buttonContainer}
+            buttonStyle={{}} //optional
+            textStyle={styles.buttonText}
+            onPress={this.onSignOut.bind(this)}/>
+          <DecisionSection image={this.state.url} style={{flex: 1}}/>
         </View>
       );
     }
