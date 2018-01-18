@@ -27,10 +27,10 @@ export default class App extends React.Component {
   }
 
   handleLogin = ()=>{
-    let newImage = API.getRestaurant._55;
+    let newImage = API.getRestaurant.image_url;
     // alert('fuck you');
-    alert(newImage);
-    console.log(newImage._55);
+    alert(newImage.image_url);
+    console.log(newImage);
 
     this.setState({
       url: newImage
