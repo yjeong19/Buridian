@@ -45,7 +45,7 @@ class Home extends React.Component {
 
       handleLikeButton = ()=>{
         this.setState({url: 'http://lorempicsum.com/simpsons/350/200/1'})
-        console.log(API.getRestaurant)
+        console.log(API)
       }
 
 
