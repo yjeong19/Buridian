@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { ActivityIndicator, ListView, Text, View } from 'react-native';
 
-const apikey = 'Bh1GkdpN9hf4X2B784KNXNkwrIIHberMpkM16VUrtqegR4UHhy2M88fHrMwARNF49hd57lz9tDjZV8GKi-iBS9hsJTFU4uSi9S2mivitgNjp6SsxX3zejntqF3RfWnYx'
+const apikey = 'W3o37Ar4AR9OeoajDYXRmNIaHAJqr0tPVrmW_8E1jd2kKzQ4R8tu-yLT8g9FFM3K9-qe2ul4A5Lb8XoHUVtk7C0kh8KnxLOIEd7fLjMKWfxEZmXhZKO31a_W0VxWWnYx'
 
 
 export default {
-    getRestaurant: fetch('https://www.omdbapi.com/?t=frozen&apikey=trilogy')
+    getRestaurant: fetch('https://api.yelp.com/v3/businesses/search')
       .then((response) => response.json())
       .then((responseJson) => {
         // console.log (responseJson.Poster);
@@ -16,7 +16,8 @@ export default {
         //   // do something with new state
         // });
         console.log(responseJson);
-       return responseJson.Poster;
+       return responseJson
+      
       })
       .catch((error) => {
         console.error(error);
