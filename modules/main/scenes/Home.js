@@ -27,28 +27,25 @@ class Home extends React.Component {
         .then((response) => response.json())
         .then((responseJson) => {
     // const responsejson = response.json().then
-            console.log(responseJson.Poster, 'this is our response')
             const image = responseJson.Poster
             this.setState({url: image})
         })
-
-        // this.HeaderComponent.handleLogin();
       }
 
-      handleLogin = ()=>{
-        let newImage = API.getRestaurant._55;
-        // alert('fuck you');
-        alert(newImage);
-        console.log(newImage._55);
+      // handleLogin = ()=>{
+      //   let newImage = API.getRestaurant._55;
+      //   // alert('fuck you');
+      //   alert(newImage);
+      //   console.log(newImage._55);
 
-        this.setState({
-          url: newImage
-        })
-      }
+      //   this.setState({
+      //     url: newImage
+      //   })
+      // }
 
       handleLikeButton = ()=>{
         this.setState({url: 'http://lorempicsum.com/simpsons/350/200/1'})
-        API.getRestaurant;
+        console.log(API.getRestaurant)
       }
 
 
