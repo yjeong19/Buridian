@@ -4,9 +4,7 @@ import { Container, Button } from 'native-base';
 import styles from '../../styles';
 
 export default class LandingPage extends React.Component {
-  constructor () {
-    super();
-  }
+
 
   render() {
     return (
