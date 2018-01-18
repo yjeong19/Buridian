@@ -16,9 +16,9 @@ export default class DecisionSection extends Component{
                 width: 320,
             }
         });
-        const test = API.getRestaurant;
+
         const DecisionImage = this.props.image
-        console.log(test,"right here");
+        // console.log(test,"right here");
         return(
           <Container>
             <Content>
@@ -39,7 +39,7 @@ export default class DecisionSection extends Component{
               </CardItem>
               <CardItem>
                 <Left>
-                  <Button style={{backgroundColor: "red"}} onPress={() => {Alert.alert('NO!');}}>
+                  <Button style={{backgroundColor: "red"}} onPress={()=> API.getRestaurant}>
                     <Icon name='thumbs-down' />
                   </Button>
 
@@ -48,7 +48,7 @@ export default class DecisionSection extends Component{
                   <Text>Do you want to eat here?</Text>
                 </Body>
                 <Right>
-                  <Button style={{backgroundColor: "green"}} onPress={() => {Alert.alert('MMMM Yes!');}}>
+                  <Button style={{backgroundColor: "green"}} onPress={this.props.like}>
                     <Icon name='thumbs-up' />
                   </Button>
                 </Right>

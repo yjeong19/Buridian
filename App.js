@@ -7,8 +7,8 @@ import Router from './config/routes';
 import store from './redux/store';
 
 
-
 export default class App extends React.Component {  
+
 
   render() {
     return (

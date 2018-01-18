@@ -9,7 +9,7 @@ import { color } from "../../../styles/Theme";
 // import DashboardWrapper from "../components/DashboardWrapper";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
-
+import API from '../../../Utils/API'
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
 
@@ -27,27 +27,25 @@ class Home extends React.Component {
         .then((response) => response.json())
         .then((responseJson) => {
     // const responsejson = response.json().then
-            console.log(responseJson.Poster, 'this is our response')
             const image = responseJson.Poster
             this.setState({url: image})
         })
-
-        // this.HeaderComponent.handleLogin();
       }
 
-      handleLogin = ()=>{
-        let newImage = API.getRestaurant._55;
-        // alert('fuck you');
-        alert(newImage);
-        console.log(newImage._55);
+      // handleLogin = ()=>{
+      //   let newImage = API.getRestaurant._55;
+      //   // alert('fuck you');
+      //   alert(newImage);
+      //   console.log(newImage._55);
 
-        this.setState({
-          url: newImage
-        })
-      }
+      //   this.setState({
+      //     url: newImage
+      //   })
+      // }
 
-      handleSignUp = ()=>{
-        this.setState({url: 'https://picsum.photos/200/300/?random'})
+      handleLikeButton = ()=>{
+        this.setState({url: 'http://lorempicsum.com/simpsons/350/200/1'})
+        console.log(API.getRestaurant)
       }
 
 
@@ -75,7 +73,11 @@ class Home extends React.Component {
             buttonStyle={{}} //optional
             textStyle={styles.buttonText}
             onPress={this.onSignOut.bind(this)}/>
-          <DecisionSection image={this.state.url} style={{flex: 1}}/>
+          <DecisionSection
+            image={this.state.url}
+            style={{flex: 1}}
+            like={this.handleLikeButton}
+            />
         </View>
       );
     }
