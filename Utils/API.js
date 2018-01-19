@@ -9,11 +9,19 @@ const limit = "limit=1";
 let categoryId = "categoryId=4bf58dd8d48988d1c4941735";
 const name = "name=restaurant";
 const radius = "radius=8046"; //default is 5 miles
+// const restaurantId = ''
 
 let queryURL = `https://api.foursquare.com/v2/venues/search?ll=${ll}&${clientID}&${clientSecret}&v=20180118&${limit}&${categoryId}&${name}&${radius}`;
 
 
-const API = fetch(queryURL)
+
+const API = (restaurantId)=>{
+
+  let photoURL = `https://api.foursquare.com/v2/venues/${restaurantId}/photos?&${clientID}&${clientSecret}&v=20180118`
+  
+  return fetch(photoURL)
+
+}
 
 
-export default API;
+export default API
