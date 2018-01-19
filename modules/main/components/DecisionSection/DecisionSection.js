@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Image, StyleSheet, Alert } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
 import API from '../../../../Utils/API'
+import ImageSlider from 'react-native-image-slider'
 
 
 
@@ -14,25 +15,40 @@ export default class DecisionSection extends Component{
             width: 320,
             }
         });
-      const DecisionImage = this.props.image
-        // console.log(test,"right here");
+      const DecisionImage = ()=>{
+          // if (!this.props.image){
+    
+          //             return 
+          //     'http://lorempicsum.com/futurama/350/200/1'  
+          // }
+          // else{
+          //       return this.props.image[0]
+          //   }
+
+          return this.props.image
+
+          }
+       
+
+        console.log(this.props.image,"line 31 ====================================");
         return(
           <Container>
             <Content>
               <Card style={styles.image}>
                 <CardItem>
                   <Left>
-                    <Thumbnail source={{uri: DecisionImage}} />
+                    <Thumbnail source={{uri: this.props.image}} />
                     <Body>
                         {/* THIS IS WHERE THE RESTAURANT NAME SHOULD GO */}
                         <Text>{this.props.restaurantName}</Text>
                         {/* THIS IS WHRERE MAYBE RESTAURAND LOCATION? */}
-                        <Text note>GeekyAnts</Text>
+                        <Text note>{this.props.address}</Text>
                     </Body>
                   </Left>
                 </CardItem>
                 <CardItem cardBody>
-                  <Image source={{uri: DecisionImage}} style={{height: 200, width: 200, flex: 1}}/>
+                  <Image source={{uri: this.props.image}} style={{height: 200, width: 200, flex: 1}}/>
+                  {/* {this.DecisionImage} */}
                 </CardItem>
                 <CardItem>
                   <Left>
