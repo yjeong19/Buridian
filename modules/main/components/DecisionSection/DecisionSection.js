@@ -11,7 +11,6 @@ export default class DecisionSection extends Component{
       const styles = StyleSheet.create({
         image: {
           flex: 1,
-            // NEED TO FIND A WAY TO MAKE WIDTH 100% SCREEN
             width: 320,
             }
         });
