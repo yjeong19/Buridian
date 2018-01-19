@@ -60,11 +60,11 @@ class Home extends React.Component {
         .then((resJson)=>{
           // console.log(resJson);
         })
-      
+
       }
 
-      
- 
+
+
       handleRandomizeButton = ()=>{
         API.getRestaurant()
         .then((response)=> response.json())
@@ -103,15 +103,6 @@ class Home extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Button
-            raised
-            title={'LOG OUT'}
-            borderRadius={4}
-            backgroundColor={color.main}
-            containerViewStyle={{marginVertical:0, marginHorizontal:0}}
-            buttonStyle={{}} //optional
-            textStyle={styles.buttonText}
-            onPress={this.onSignOut.bind(this)}/>
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -122,6 +113,15 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
+            <Button
+              raised
+              title={'LOG OUT'}
+              borderRadius={4}
+              backgroundColor={color.main}
+              containerViewStyle={{marginVertical:0, marginHorizontal:0}}
+              buttonStyle={{}} //optional
+              textStyle={styles.buttonText}
+              onPress={this.onSignOut.bind(this)}/>
         </View>
       );
     }
@@ -139,7 +139,7 @@ export default connect(mapStateToProps, { signOut })(Home);
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#e35141',
         justifyContent: "center",
         alignItems: "center"
     },
