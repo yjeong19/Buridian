@@ -6,18 +6,15 @@ import API from '../../../../Utils/API'
 
 
 export default class DecisionSection extends Component{
-
     render(){
-
-        const styles = StyleSheet.create({
-            image: {
-                flex: 1,
-                // NEED TO FIND A WAY TO MAKE WIDTH 100% SCREEN
-                width: 320,
+      const styles = StyleSheet.create({
+        image: {
+          flex: 1,
+            // NEED TO FIND A WAY TO MAKE WIDTH 100% SCREEN
+            width: 320,
             }
         });
-
-        const DecisionImage = this.props.image
+      const DecisionImage = this.props.image
         // console.log(test,"right here");
         return(
           <Container>
@@ -28,22 +25,21 @@ export default class DecisionSection extends Component{
                     <Thumbnail source={{uri: DecisionImage}} />
                     <Body>
                         {/* THIS IS WHERE THE RESTAURANT NAME SHOULD GO */}
-                        <Text>Restaurant Name</Text>
+                        <Text>{this.props.restaurantName}</Text>
                         {/* THIS IS WHRERE MAYBE RESTAURAND LOCATION? */}
                         <Text note>GeekyAnts</Text>
                     </Body>
                   </Left>
-              </CardItem>
-              <CardItem cardBody>
+                </CardItem>
+                <CardItem cardBody>
                   <Image source={{uri: DecisionImage}} style={{height: 200, width: 200, flex: 1}}/>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Button style={{backgroundColor: "red"}} onPress={()=> Alert.alert("NO!")}>
-                    <Icon name='thumbs-down' />
-                  </Button>
-
-                </Left>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Button style={{backgroundColor: "red"}} onPress={()=> alert('NO')}>
+                      <Icon name='thumbs-down' />
+                    </Button>
+                  </Left>
                 <Body>
                   <Text>Do you want to eat here?</Text>
                 </Body>
