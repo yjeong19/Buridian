@@ -26,7 +26,7 @@ class Home extends React.Component {
         website: "",
         restaurantId: '',
         fourSquarePage: "",
-        numOptions: ""
+        numOptions: "",
         asian: false
       }
 
@@ -128,9 +128,9 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
-          <CheckBoxExample
+          {/*<CheckBoxExample
           onPress = {CheckBoxExample.handleClickAsian}
-          />
+          />*/}
             <Button
               raised
               title={'LOG OUT'}
