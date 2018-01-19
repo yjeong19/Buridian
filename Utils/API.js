@@ -4,22 +4,29 @@ import { ActivityIndicator, ListView, Text, View } from 'react-native';
 
 const clientID = 'client_id=F1HXPLN4RQVN33S1FGTGRHHUT4KEZAZVCEOM5YYS10YSA5DD';
 const clientSecret = 'client_secret=SV5APWFL0S5MWVEK0ZQ214PZTFYU1YXKLDQLV11QJQN1Y3FE';
-let ll = "38.7589,-77.2709";
-const limit = "limit=1";
-let categoryId = "categoryId=4bf58dd8d48988d1c4941735";
+let near = "Ballston";
+// const limit = 20;
+let categoryId = "categoryId=4bf58dd8d48988d1c1941735,4bf58dd8d48988d1cb941735";
 const name = "name=restaurant";
-const radius = "radius=8046"; //default is 5 miles
+const radius = "radius=4828"; //default is 5 miles
 // const restaurantId = ''
 
-let queryURL = `https://api.foursquare.com/v2/venues/search?ll=${ll}&${clientID}&${clientSecret}&v=20180118&${limit}&${categoryId}&${name}&${radius}`;
+// 4bf58dd8d48988d1c4941735 restaurant
 
 
 
-const API = (restaurantId)=>{
 
-  let photoURL = `https://api.foursquare.com/v2/venues/${restaurantId}/photos?&${clientID}&${clientSecret}&v=20180118`
+const API = {
   
-  return fetch(photoURL)
+  getPhoto: (restaurantId)=>{
+    let photoURL = `https://api.foursquare.com/v2/venues/${restaurantId}/photos?&${clientID}&${clientSecret}&v=20180118`
+    return fetch(photoURL);
+  },
+  
+  getRestaurant: (categories)=>{
+    let queryURL = `https://api.foursquare.com/v2/venues/search?near=${near}&${clientID}&${clientSecret}&v=20180118&${categoryId}&${name}&${radius}`;
+    return fetch(queryURL);
+  }
 
 }
 

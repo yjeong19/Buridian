@@ -10,7 +10,7 @@ import { color } from "../../../styles/Theme";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
-import RandomRestaurant from '../../../Utils/RandomRestaurant'
+// import RandomRestaurant from '../../../Utils/RandomRestaurant'
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
 
@@ -30,14 +30,9 @@ class Home extends React.Component {
       }
 
       handlePhoto=()=>{
-        API(this.state.restaurantId)
+        API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
-          // console.log(responseJson.response.photos.items)
-
-          
-          
-          
           if(!responseJson.response.photos.items[0]){
             this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
             console.log(this.state.url)
@@ -58,14 +53,26 @@ class Home extends React.Component {
         })
       }
 
+      handleAPI = ()=>{
+        API.getRestaurant()
+        .then((res)=> res.json())
+        .then((resJson)=>{
+          console.log(resJson);
+        })
+      
+      }
+
       
  
       handleRandomizeButton = ()=>{
         // console.log(RandomRestaurant)
 
   
-        RandomRestaurant.then((response)=>{
-          let data = JSON.parse(response._bodyInit);
+        API.getRestaurant()
+        .then((response)=> response.json())
+        .then((data)=>{
+          // let data = JSON.parse(response._bodyInit);
+
           let i = Math.floor((Math.random() * data.response.venues.length) + 1);
           this.setState({restaurantName: data.response.venues[i].name});
           this.setState({address: data.response.venues[i].location.formattedAddress[0]});
@@ -110,6 +117,7 @@ class Home extends React.Component {
             randomized={this.handleRandomizeButton}
             restaurantName={this.state.restaurantName}
             address={this.state.address}
+            api = {this.handleAPI}
             />
         </View>
       );

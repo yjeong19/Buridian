@@ -15,19 +15,7 @@ export default class DecisionSection extends Component{
             width: 320,
             }
         });
-      const DecisionImage = ()=>{
-          // if (!this.props.image){
-    
-          //             return 
-          //     'http://lorempicsum.com/futurama/350/200/1'  
-          // }
-          // else{
-          //       return this.props.image[0]
-          //   }
-
-          return this.props.image
-
-          }
+  
        
 
         console.log(this.props.image,"line 31 ====================================");
@@ -52,7 +40,7 @@ export default class DecisionSection extends Component{
                 </CardItem>
                 <CardItem>
                   <Left>
-                    <Button style={{backgroundColor: "red"}} onPress={()=> alert('NO')}>
+                    <Button style={{backgroundColor: "red"}} onPress={console.log(this.props.api)}>
                       <Icon name='thumbs-down' />
                     </Button>
                   </Left>
