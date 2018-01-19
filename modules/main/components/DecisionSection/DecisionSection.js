@@ -16,8 +16,6 @@ export default class DecisionSection extends Component{
             }
         });
 
-
-
         console.log(this.props.image,"line 31 ====================================");
         return(
           <Container>

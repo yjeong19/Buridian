@@ -1,12 +1,13 @@
 import React from 'react';
 var { View, StyleSheet, Alert, Text, Linking } = require('react-native');
+import {Container} from 'native-base';
 
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
 import { color } from "../../../styles/Theme";
-// import DashboardWrapper from "../components/DashboardWrapper";
+import Picker from "../components/Picker";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
@@ -22,7 +23,8 @@ class Home extends React.Component {
         phone: "",
         website: "",
         restaurantId: '',
-        fourSquarePage: ""
+        fourSquarePage: "",
+        numOptions: ""
       }
 
       componentDidMount(){
@@ -63,6 +65,9 @@ class Home extends React.Component {
 
       }
 
+      handleSettingsPress = ()=>{
+        Alert.alert("settings");
+      }
 
 
       handleRandomizeButton = ()=>{
@@ -102,7 +107,14 @@ class Home extends React.Component {
 
     render() {
       return (
-        <View style={styles.container}>
+        <Container style={{
+          flex: 1,
+          backgroundColor: '#e35141',
+          justifyContent: "center",
+          alignItems: "center"}}>
+          <Picker style={{flex: .5}}
+            numOptions={this.state.numOptions} />
+          <View style={{flex: 4}}>
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -120,9 +132,10 @@ class Home extends React.Component {
               backgroundColor={color.main}
               containerViewStyle={{marginVertical:0, marginHorizontal:0}}
               buttonStyle={{}} //optional
-              textStyle={styles.buttonText}
+              textStyle={{fontWeight: "500"}}
               onPress={this.onSignOut.bind(this)}/>
         </View>
+        </Container>
       );
     }
 }
@@ -136,15 +149,15 @@ function mapStateToProps(state, props) {
 export default connect(mapStateToProps, { signOut })(Home);
 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#e35141',
-        justifyContent: "center",
-        alignItems: "center"
-    },
-
-    buttonText:{
-        fontWeight:"500"
-    }
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#e35141',
+//         justifyContent: "center",
+//         alignItems: "center"
+//     },
+//
+//     buttonText:{
+//         fontWeight:"500"
+//     }
+// });
