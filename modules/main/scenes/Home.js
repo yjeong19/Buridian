@@ -33,15 +33,19 @@ class Home extends React.Component {
         API(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
-          console.log(responseJson.response.photos.items)
+          // console.log(responseJson.response.photos.items)
+          
           let photoObject = responseJson.response.photos.items[0];
-
+          
           if(!photoObject){
             this.setState({url: 'http://lorempicsum.com/futurama/350/200/1'})
             console.log(this.state.url)
           }
           else{
+            // let i = Math.floor((Math.random() * photoObject.length) + 1);
+            // photoObject=photoObject[i]
             const imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
+
             this.setState({url: imageUrl})
           }
         })
