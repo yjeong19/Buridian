@@ -39,7 +39,7 @@ export default class DecisionSection extends Component{
               </CardItem>
               <CardItem>
                 <Left>
-                  <Button style={{backgroundColor: "red"}} onPress={()=> API.getRestaurant}>
+                  <Button style={{backgroundColor: "red"}} onPress={()=> Alert.alert("NO!")}>
                     <Icon name='thumbs-down' />
                   </Button>
 
@@ -48,12 +48,15 @@ export default class DecisionSection extends Component{
                   <Text>Do you want to eat here?</Text>
                 </Body>
                 <Right>
-                  <Button style={{backgroundColor: "green"}} onPress={this.props.like}>
+                  <Button style={{backgroundColor: "green"}} onPress={()=> Alert.alert("YES!")}>
                     <Icon name='thumbs-up' />
                   </Button>
                 </Right>
                 </CardItem>
               </Card>
+              <Button onPress={this.props.randomized}>
+                <Icon name='shuffle' />
+              </Button>
             </Content>
           </Container>
         )

@@ -10,6 +10,7 @@ import { color } from "../../../styles/Theme";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
+import RandomRestaurant from '../../../Utils/RandomRestaurant'
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
 
@@ -19,7 +20,11 @@ class Home extends React.Component {
     //   this.state = { }
     // }
     state={
-        url: 'https://picsum.photos/200'
+        url: 'https://picsum.photos/200',
+        restaurantName: "",
+        address: "",
+        phone: "",
+        website: ""
       }
 
       componentDidMount(){
@@ -43,9 +48,18 @@ class Home extends React.Component {
       //   })
       // }
 
-      handleLikeButton = ()=>{
-        this.setState({url: 'http://lorempicsum.com/simpsons/350/200/1'})
-        console.log(API)
+      handleRandomizeButton = ()=>{
+
+        RandomRestaurant.then((response)=>{
+          let data = JSON.parse(response._bodyInit);
+          let i = Math.floor((Math.random() * data.response.venues.length) + 1);
+          this.setState({restaurantName: data.response.venues[0].name});
+          this.setState({address: data.response.venues[0].location.formattedAddress[0]});
+          this.setState({phone: data.response.venues[0].location.formattedphone});
+          this.setState({website: data.response.venues[0].url});
+          console.log(data.response.venues[i].name);
+        });
+
       }
 
 
@@ -69,14 +83,14 @@ class Home extends React.Component {
             title={'LOG OUT'}
             borderRadius={4}
             backgroundColor={color.main}
-            containerViewStyle={styles.buttonContainer}
+            containerViewStyle={{marginVertical:0, marginHorizontal:0}}
             buttonStyle={{}} //optional
             textStyle={styles.buttonText}
             onPress={this.onSignOut.bind(this)}/>
           <DecisionSection
             image={this.state.url}
             style={{flex: 1}}
-            like={this.handleLikeButton}
+            randomized={this.handleRandomizeButton}
             />
         </View>
       );
@@ -98,10 +112,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: "center",
         alignItems: "center"
-    },
-
-    buttonContainer:{
-        marginVertical:0, marginHorizontal:0
     },
 
     buttonText:{
