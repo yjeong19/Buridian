@@ -16,7 +16,7 @@ var { signOut } = auth;
 
 class Home extends React.Component {
     state={
-        url: '',
+        imageUrl: '',
         restaurantName: "",
         address: "",
         phone: "",
@@ -34,27 +34,36 @@ class Home extends React.Component {
         .then((response)=> response.json())
         .then((responseJson)=>{
           // console.log(responseJson.response.photos.items)
+
           
-          let photoObject = responseJson.response.photos.items[0];
           
-          if(!photoObject){
-            this.setState({url: 'http://lorempicsum.com/futurama/350/200/1'})
+          
+          if(!responseJson.response.photos.items[0]){
+            this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
             console.log(this.state.url)
           }
           else{
-            // let i = Math.floor((Math.random() * photoObject.length) + 1);
-            // photoObject=photoObject[i]
-            const imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
+            const photoObject = responseJson.response.photos.items[0];
+            // let imageUrl = photoObject.map(photos =>{
+            //   return photos.prefix + '300x500' + photos.suffix;
+            // })
+            /// this gives an array of links
 
-            this.setState({url: imageUrl})
+            let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix
+
+
+            console.log(imageUrl)
+            this.setState({imageUrl})
           }
         })
       }
 
       
-
+ 
       handleRandomizeButton = ()=>{
+        // console.log(RandomRestaurant)
 
+  
         RandomRestaurant.then((response)=>{
           let data = JSON.parse(response._bodyInit);
           let i = Math.floor((Math.random() * data.response.venues.length) + 1);
@@ -96,10 +105,11 @@ class Home extends React.Component {
             textStyle={styles.buttonText}
             onPress={this.onSignOut.bind(this)}/>
           <DecisionSection
-            image={this.state.url}
+            image={this.state.imageUrl}
             style={{flex: 1}}
             randomized={this.handleRandomizeButton}
             restaurantName={this.state.restaurantName}
+            address={this.state.address}
             />
         </View>
       );

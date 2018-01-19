@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { ActivityIndicator, ListView, Text, View } from 'react-native';
 
 
-const clientID = 'client_id=XBRO1GKOZDIWDCFK2DK3BHVWONDL4BG5ZVABQKHF0WBSV3SG';
-const clientSecret = 'client_secret=M20PQSTDV5DWFNTM4SRJF3ONOIAS2D2K5THS5NIDPEZKK3CJ';
+const clientID = 'client_id=F1HXPLN4RQVN33S1FGTGRHHUT4KEZAZVCEOM5YYS10YSA5DD';
+const clientSecret = 'client_secret=SV5APWFL0S5MWVEK0ZQ214PZTFYU1YXKLDQLV11QJQN1Y3FE';
 let ll = "38.7589,-77.2709";
 const limit = "limit=1";
 let categoryId = "categoryId=4bf58dd8d48988d1c4941735";
