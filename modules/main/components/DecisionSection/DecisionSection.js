@@ -15,22 +15,9 @@ export default class DecisionSection extends Component{
             width: 320,
             }
         });
-      const DecisionImage = ()=>{
-          // if (!this.props.image){
-    
-          //             return 
-          //     'http://lorempicsum.com/futurama/350/200/1'  
-          // }
-          // else{
-          //       return this.props.image[0]
-          //   }
 
-          return this.props.image
 
-          }
-       
-
-        console.log(this.props.image,"line 31 ====================================");
+        // console.log(this.props.image,"line 31 ====================================");
         return(
           <Container>
             <Content>
@@ -39,16 +26,15 @@ export default class DecisionSection extends Component{
                   <Left>
                     <Thumbnail source={{uri: this.props.image}} />
                     <Body>
-                        {/* THIS IS WHERE THE RESTAURANT NAME SHOULD GO */}
                         <Text>{this.props.restaurantName}</Text>
-                        {/* THIS IS WHRERE MAYBE RESTAURAND LOCATION? */}
-                        <Text note>{this.props.address}</Text>
+                          <Text note>{this.props.address}</Text>
+                          <Text note>{this.props.phone}</Text>
+                          <Text note>{this.props.website}</Text>
                     </Body>
                   </Left>
                 </CardItem>
                 <CardItem cardBody>
                   <Image source={{uri: this.props.image}} style={{height: 200, width: 200, flex: 1}}/>
-                  {/* {this.DecisionImage} */}
                 </CardItem>
                 <CardItem>
                   <Left>
@@ -60,7 +46,7 @@ export default class DecisionSection extends Component{
                   <Text>Do you want to eat here?</Text>
                 </Body>
                 <Right>
-                  <Button style={{backgroundColor: "green"}} onPress={()=> Alert.alert("YES!")}>
+                  <Button style={{backgroundColor: "green"}} onPress={this.props.fourSquarePage}>
                     <Icon name='thumbs-up' />
                   </Button>
                 </Right>

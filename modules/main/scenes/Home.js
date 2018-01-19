@@ -1,5 +1,5 @@
 import React from 'react';
-var { View, StyleSheet, Alert, Text } = require('react-native');
+var { View, StyleSheet, Alert, Text, Linking } = require('react-native');
 
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
@@ -21,7 +21,8 @@ class Home extends React.Component {
         address: "",
         phone: "",
         website: "",
-        restaurantId: ''
+        restaurantId: '',
+        fourSquarePage: ""
       }
 
       componentDidMount(){
@@ -35,9 +36,7 @@ class Home extends React.Component {
         .then((responseJson)=>{
           // console.log(responseJson.response.photos.items)
 
-          
-          
-          
+
           if(!responseJson.response.photos.items[0]){
             this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
             console.log(this.state.url)
@@ -58,25 +57,27 @@ class Home extends React.Component {
         })
       }
 
-      
- 
-      handleRandomizeButton = ()=>{
-        // console.log(RandomRestaurant)
 
-  
+      handleRandomizeButton = ()=>{
+
         RandomRestaurant.then((response)=>{
           let data = JSON.parse(response._bodyInit);
           let i = Math.floor((Math.random() * data.response.venues.length) + 1);
           this.setState({restaurantName: data.response.venues[i].name});
           this.setState({address: data.response.venues[i].location.formattedAddress[0]});
-          this.setState({phone: data.response.venues[i].location.formattedphone});
+          this.setState({phone: data.response.venues[i].contact.formattedPhone});
           this.setState({website: data.response.venues[i].url});
-          this.setState({restaurantId: data.response.venues[i].id})
+          this.setState({restaurantId: data.response.venues[i].id});
+          this.setState({fourSquarePage: data.response.venues[i].menu.url});
+          console.log(data.response.venues[i]);
+          console.log("4sq url" + data.response.venues[i].menu.url);
           this.handlePhoto();
-          // console.log(data.response.venues[i].name, '74');
-          // console.log(data.response.venues[i].id,'75')
-          // console.log(this.state, '76')
+
         });
+      }
+
+      handleYesButton = () => {
+        Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
       }
 
 
@@ -110,6 +111,9 @@ class Home extends React.Component {
             randomized={this.handleRandomizeButton}
             restaurantName={this.state.restaurantName}
             address={this.state.address}
+            phone={this.state.phone}
+            website={this.state.website}
+            fourSquarePage={this.handleYesButton}
             />
         </View>
       );
