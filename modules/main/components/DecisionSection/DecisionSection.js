@@ -15,16 +15,10 @@ export default class DecisionSection extends Component{
             width: 320,
             }
         });
-<<<<<<< HEAD
-
-
-        // console.log(this.props.image,"line 31 ====================================");
-=======
   
        
 
         console.log(this.props.image,"line 31 ====================================");
->>>>>>> 73f1255dc3737d1ceabdeb1c2f9f990a2b848271
         return(
           <Container>
             <Content>

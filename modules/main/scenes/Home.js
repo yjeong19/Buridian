@@ -34,7 +34,7 @@ class Home extends React.Component {
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
-          if(!responseJson.response.photos.items[0]){
+          if(!responseJson.response.photos.items){
             this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
             console.log(this.state.url)
           }
@@ -58,7 +58,7 @@ class Home extends React.Component {
         API.getRestaurant()
         .then((res)=> res.json())
         .then((resJson)=>{
-          console.log(resJson);
+          // console.log(resJson);
         })
       
       }
@@ -77,8 +77,8 @@ class Home extends React.Component {
           this.setState({website: data.response.venues[i].url});
           this.setState({restaurantId: data.response.venues[i].id});
           this.setState({fourSquarePage: data.response.venues[i].menu.url});
-          console.log(data.response.venues[i]);
-          console.log("4sq url" + data.response.venues[i].menu.url);
+          // console.log(data.response.venues[i]);
+          // console.log("4sq url" + data.response.venues[i].menu.url);
           this.handlePhoto();
         });
       }
