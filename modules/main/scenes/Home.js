@@ -6,6 +6,8 @@ import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
+//import Checkbox
+import CheckBoxExample from '../components/Checkbox';
 import { color } from "../../../styles/Theme";
 import Picker from "../components/Picker";
 import DecisionSection from "../components/DecisionSection";
@@ -25,6 +27,7 @@ class Home extends React.Component {
         restaurantId: '',
         fourSquarePage: "",
         numOptions: ""
+        asian: false
       }
 
       componentDidMount(){
@@ -125,6 +128,9 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
+          <CheckBoxExample
+          onPress = {CheckBoxExample.handleClickAsian}
+          />
             <Button
               raised
               title={'LOG OUT'}
@@ -145,6 +151,8 @@ function mapStateToProps(state, props) {
         user:  state.authReducer.user
     }
 }
+
+
 
 export default connect(mapStateToProps, { signOut })(Home);
 
