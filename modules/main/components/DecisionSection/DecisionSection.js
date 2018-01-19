@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Image, StyleSheet, Alert } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
 import API from '../../../../Utils/API'
-import ImageSlider from 'react-native-image-slider'
+// import ImageSlider from 'react-native-image-slider'
 
 
 
@@ -11,12 +11,11 @@ export default class DecisionSection extends Component{
       const styles = StyleSheet.create({
         image: {
           flex: 1,
-            // NEED TO FIND A WAY TO MAKE WIDTH 100% SCREEN
             width: 320,
             }
         });
-  
-       
+
+
 
         console.log(this.props.image,"line 31 ====================================");
         return(
