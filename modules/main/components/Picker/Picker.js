@@ -12,7 +12,8 @@ export default class PickerExample extends Component {
     super(props);
     this.state = {
       numOptions: "key0",
-      location: "e.g. Ballston"
+      location: "e.g. Ballston",
+      categoryId: [];
     };
   }
   onValueChange(value: string) {
@@ -33,11 +34,12 @@ export default class PickerExample extends Component {
     console.log("Submit button pressed");
     console.log(this.state.location);
     Actions.Results();
+    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
 
   };
 
-  onTest= ()=>{
-    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
+  onAddCategory = Id =>{
+    console.log(event);
   }
 
   render() {
@@ -78,7 +80,7 @@ export default class PickerExample extends Component {
             <CheckBox
               label='American'
               categoryID='4bf58dd8d48988d14e941735'
-              onChange={this.onTest}/>
+              onChange={this.onAddCategory}/>
           </FormItem>
           <FormItem>
             <CheckBox
