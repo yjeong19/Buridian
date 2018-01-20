@@ -56,7 +56,7 @@ const fields = [
         secureTextEntry:false,
         value: "",
         type: "text"
-    }
+    },
 ];
 
 class Register extends React.Component {

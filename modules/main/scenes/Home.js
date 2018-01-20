@@ -7,7 +7,6 @@ import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
 //import Checkbox
-import CheckBoxExample from '../components/Checkbox';
 import { color } from "../../../styles/Theme";
 import Picker from "../components/Picker";
 import DecisionSection from "../components/DecisionSection";
@@ -111,14 +110,14 @@ class Home extends React.Component {
     render() {
       return (
         <Container style={{
-          flex: 1,
           backgroundColor: '#e35141',
           justifyContent: "center",
           alignItems: "center"}}>
-          <Picker style={{flex: .5}}
+          <Picker
             numOptions={this.state.numOptions} />
-          <View style={{flex: 4}}>
-          <DecisionSection
+          <View
+            style={{height:200}}>
+          {/*<DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
             randomized={this.handleRandomizeButton}
@@ -127,10 +126,8 @@ class Home extends React.Component {
             phone={this.state.phone}
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
-            />
-          {/*<CheckBoxExample
-          onPress = {CheckBoxExample.handleClickAsian}
-          />*/}
+            />*/}
+
             <Button
               raised
               title={'LOG OUT'}
@@ -152,20 +149,4 @@ function mapStateToProps(state, props) {
     }
 }
 
-
-
 export default connect(mapStateToProps, { signOut })(Home);
-
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#e35141',
-//         justifyContent: "center",
-//         alignItems: "center"
-//     },
-//
-//     buttonText:{
-//         fontWeight:"500"
-//     }
-// });
