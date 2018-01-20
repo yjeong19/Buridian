@@ -1,5 +1,5 @@
 import React from 'react';
-var { View, StyleSheet, Alert, Text, Linking } = require('react-native');
+import { ScrollView, View, StyleSheet, Alert, Text, Linking } from 'react-native';
 import {Container} from 'native-base';
 
 import {Button} from 'react-native-elements'
@@ -60,7 +60,8 @@ class Home extends React.Component {
           justifyContent: "center",
           alignItems: "center"}}>
             <Picker
-              numOptions={this.state.numOptions} />
+              numOptions={this.state.numOptions}
+              style={{flex:1}} />
             <Button
               raised
               title={'LOG OUT'}

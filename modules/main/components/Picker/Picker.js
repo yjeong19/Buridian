@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform } from "react-native";
+import { Platform, ScrollView } from "react-native";
 import { Container, Input, Header, Title, Content, Button, Icon, Text, Right, Body, Left, Picker, View, Form, Item as FormItem } from "native-base";
 const Item = Picker.Item;
 import CheckBox from "../CheckBox";
@@ -43,6 +43,7 @@ export default class PickerExample extends Component {
   render() {
     return (
       <Container>
+        <ScrollView>
         <Form style={{backgroundColor: '#e35141'}}>
           <FormItem>
             <Text>1) Please enter your location (required):</Text>
@@ -160,6 +161,7 @@ export default class PickerExample extends Component {
             </Button>
           </FormItem>
         </Form>
+        </ScrollView>
       </Container>
     );
   }
