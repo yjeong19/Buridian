@@ -4,6 +4,8 @@ import { Container, Input, Header, Title, Content, Button, Icon, Text, Right, Bo
 const Item = Picker.Item;
 import CheckBox from "../CheckBox";
 import API from '../../../../Utils/API'
+import {Actions} from 'react-native-router-flux';
+
 
 export default class PickerExample extends Component {
   constructor(props) {
@@ -28,6 +30,8 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("Submit pressed");
+    Actions.Results();
 
   };
 
@@ -45,7 +49,6 @@ export default class PickerExample extends Component {
           <FormItem>
             <Input
               style={{backgroundColor: 'white'}}
-              value={this.state.location}
               onChange={this.handleInputChange}
               name="location"
               placeholder="e.g. Arlington"
@@ -148,7 +151,7 @@ export default class PickerExample extends Component {
           </FormItem>
           <FormItem style={{justifyContent: 'center'}}>
             <Button
-              disabled={!(this.state.location)}
+
               onPress={this.handleFormSubmit}
               >
               <Text small>Submit</Text>

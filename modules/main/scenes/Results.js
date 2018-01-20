@@ -116,17 +116,7 @@ class Results extends React.Component {
           backgroundColor: '#e35141',
           justifyContent: "center",
           alignItems: "center"}}>
-          {/* <Picker
-            numOptions={this.state.numOptions} /> */}
-            <ScrollView style={{flex:1}}>
-          {/* <View
-            style={{flex:1}}>
-            </View> */}
-            <Picker
-              numOptions={this.state.numOptions}
-              categoryId = {this.state.categoryId}
-              Id={this.handleRandomizeButton}
-               />
+        <ScrollView style={{flex:1}}>
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -137,9 +127,9 @@ class Results extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
-               </ScrollView>
+        </ScrollView>
 
-{/*
+
             <Button
               raised
               title={'LOG OUT'}
@@ -149,7 +139,6 @@ class Results extends React.Component {
               buttonStyle={{}} //optional
               textStyle={{fontWeight: "500"}}
               onPress={this.onSignOut.bind(this)}/>
-        </View>*/}
         </Container>
       );
     }
