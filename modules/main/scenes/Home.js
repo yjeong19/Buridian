@@ -12,7 +12,6 @@ import Picker from "../components/Picker";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
-// import RandomRestaurant from '../../../Utils/RandomRestaurant'
 import { actions as auth } from "../../auth"
 var { signOut } = auth;
 
@@ -115,9 +114,9 @@ class Home extends React.Component {
           alignItems: "center"}}>
           <Picker
             numOptions={this.state.numOptions} />
-          <View
+          {/*<View
             style={{height:200}}>
-          {/*<DecisionSection
+          <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
             randomized={this.handleRandomizeButton}
@@ -126,7 +125,7 @@ class Home extends React.Component {
             phone={this.state.phone}
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
-            />*/}
+            />
 
             <Button
               raised
@@ -137,7 +136,7 @@ class Home extends React.Component {
               buttonStyle={{}} //optional
               textStyle={{fontWeight: "500"}}
               onPress={this.onSignOut.bind(this)}/>
-        </View>
+        </View>*/}
         </Container>
       );
     }

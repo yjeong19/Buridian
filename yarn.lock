@@ -4738,7 +4738,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -4894,6 +4894,16 @@ react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
 
+react-native-busy-indicator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-busy-indicator/-/react-native-busy-indicator-1.1.0.tgz#bdbd938980c81e6a5bba095c70228497e3011378"
+
+react-native-check-box@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-check-box/-/react-native-check-box-2.0.2.tgz#70e34a930833fa3c44f283f52e96f2b00b12316d"
+  dependencies:
+    prop-types "^15.5.7"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -4923,6 +4933,12 @@ react-native-easy-grid@0.1.15:
   dependencies:
     lodash "^4.11.1"
 
+react-native-easy-toast@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-easy-toast/-/react-native-easy-toast-1.0.9.tgz#85b28ccd8f6dfb67495320a47c275d3fe163e660"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-elements@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.19.0.tgz#737c5198bf7487f9986e2023826cd0bd7a500366"
@@ -4931,6 +4947,12 @@ react-native-elements@^0.19.0:
     lodash.times "^4.3.2"
     opencollective "^1.0.3"
     prop-types "^15.5.8"
+
+react-native-foursquare-api@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-foursquare-api/-/react-native-foursquare-api-0.0.4.tgz#530628a5cd15df940094e3a6f5fc3187c44a2bd5"
+  dependencies:
+    querystring "^0.2.0"
 
 react-native-gesture-handler@1.0.0-alpha.30:
   version "1.0.0-alpha.30"
@@ -4953,6 +4975,12 @@ react-native-loading-spinner-overlay@^0.5.2:
 react-native-maps@0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.1.tgz#ab2236341fd984dac8864202ae55331bc262f60c"
+
+react-native-modest-checkbox@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-modest-checkbox/-/react-native-modest-checkbox-2.0.0.tgz#7ed3dc30118df38b6c3c0e41d98263a8c99365d5"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-redux-listener@^0.3.0:
   version "0.3.0"
@@ -5012,6 +5040,14 @@ react-native-tab-view@^0.0.70:
 react-native-vector-icons@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.4.2.tgz#090f42ee0396c4cc4eae0ddaa518028ba8df40c7"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.10"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"

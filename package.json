@@ -23,19 +23,21 @@
     "expo": "^23.0.4",
     "firebase": "^4.8.2",
     "native-base": "^2.3.6",
+    "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-busy-indicator": "^1.1.0",
+    "react-native-check-box": "^2.0.2",
+    "react-native-easy-toast": "^1.0.9",
     "react-native-elements": "^0.19.0",
     "react-native-foursquare-api": "0.0.4",
-    "react-native-image-slider": "^1.1.5",
     "react-native-loading-spinner-overlay": "^0.5.2",
+    "react-native-modest-checkbox": "^2.0.0",
     "react-native-redux-listener": "^0.3.0",
     "react-native-router-flux": "^4.0.0-beta.28",
     "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "yelp-fusion": "^2.0.3"
+    "redux-thunk": "^2.2.0"
   }
 }
