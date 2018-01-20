@@ -1,18 +1,21 @@
+import { Container, Header, Title, Button, Left, Right, Body, Icon, TextInput } from 'native-base';
 import React, {Component} from 'react';
-import {Container, Content} from 'native-base';
 import {Text} from 'react-native'
-import {Button} from 'react-native-elements'
+import Picker from '../Picker';
 
 
 export default class HomeHeader extends Component {
 
+  constructor(props) {
+    super(props);
+  }
 
     render (){
-        console.log(this)
-        return(
-            <Container>
-              
-            </Container>
-        )
+      return(
+      <Container style={{flex: .3}}>
+          <Picker />
+      </Container>
+
+      )
     }
 }

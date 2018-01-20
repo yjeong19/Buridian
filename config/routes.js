@@ -46,7 +46,7 @@ export default class extends React.Component {
             </Stack>
 
             <Stack key="Main" initial={this.state.isLoggedIn}>
-              <Scene key="Home" component={Home} title="Home" initial={true} type={ActionConst.REPLACE}/>
+              <Scene key="Home" component={Home} title="Buridian" initial={true} type={ActionConst.REPLACE}/>
             </Stack>
           </Scene>
         </Router>
