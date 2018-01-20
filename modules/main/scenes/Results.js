@@ -16,7 +16,7 @@ import { actions as auth } from "../../auth"
 import PickerExample from '../components/Picker/Picker';
 var { signOut } = auth;
 
-class Home extends React.Component {
+class Results extends React.Component {
     state={
         imageUrl: '',
         restaurantName: "",
@@ -71,7 +71,7 @@ class Home extends React.Component {
       handleSettingsPress = ()=>{
         Alert.alert("settings");
       }
-      
+
 
 
       handleRandomizeButton = (x)=>{
@@ -110,7 +110,7 @@ class Home extends React.Component {
     }
 
     render() {
-      
+
       return (
         <Container style={{
           backgroundColor: '#e35141',
@@ -161,4 +161,4 @@ function mapStateToProps(state, props) {
     }
 }
 
-export default connect(mapStateToProps, { signOut })(Home);
+export default connect(mapStateToProps, { signOut })(Results);

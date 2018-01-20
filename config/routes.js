@@ -48,7 +48,7 @@ export default class extends React.Component {
 
             <Stack key="Main" initial={this.state.isLoggedIn}>
               <Scene key="Search" component={Form} title="Restaurant Search" initial={true} type={ActionConst.REPLACE}/>
-              <Scene key="Results" component={Home} title="Results"/>
+              <Scene key="Results" component={Results} title="Results"/>
 
             </Stack>
           </Scene>
