@@ -23,8 +23,10 @@ const API = {
     return fetch(photoURL);
   },
   
-  getRestaurant: (categories)=>{
-    let queryURL = `https://api.foursquare.com/v2/venues/search?near=${near}&${clientID}&${clientSecret}&v=20180118&${categoryId}&${name}&${radius}&${limit}`;
+  getRestaurant: (Ids)=>{
+    //add commas in ''
+    categories = categoryId + ''
+    let queryURL = `https://api.foursquare.com/v2/venues/search?near=${near}&${clientID}&${clientSecret}&v=20180118&${categories}&${name}&${radius}&${limit}`;
     return fetch(queryURL);
   }
 

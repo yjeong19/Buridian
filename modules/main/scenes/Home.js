@@ -112,10 +112,10 @@ class Home extends React.Component {
           backgroundColor: '#e35141',
           justifyContent: "center",
           alignItems: "center"}}>
-          <Picker
-            numOptions={this.state.numOptions} />
-          {/*<View
-            style={{height:200}}>
+          {/* <Picker
+            numOptions={this.state.numOptions} /> */}
+          <View
+            style={{flex:1}}>
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -126,7 +126,11 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
+            </View>
+            <Picker
+              numOptions={this.state.numOptions} />
 
+{/*
             <Button
               raised
               title={'LOG OUT'}
