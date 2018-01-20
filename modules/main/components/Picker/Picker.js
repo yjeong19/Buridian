@@ -40,7 +40,7 @@ export default class PickerExample extends Component {
       <Container>
         <Form style={{backgroundColor: '#e35141'}}>
           <FormItem>
-            <Text>Please enter your location (required):</Text>
+            <Text>1) Please enter your location (required):</Text>
           </FormItem>
           <FormItem>
             <Input
@@ -52,7 +52,7 @@ export default class PickerExample extends Component {
             />
           </FormItem>
           <FormItem>
-            <Text>Choose # of Restaurant options you want:</Text>
+            <Text>2) Choose # of Restaurant options you want:</Text>
           </FormItem>
           <FormItem style={{justifyContent: 'center'}}>
             <Picker style={{backgroundColor: 'white'}}
@@ -66,7 +66,7 @@ export default class PickerExample extends Component {
             </Picker>
           </FormItem>
           <FormItem>
-            <Text>Choose any category that you want included in the search parameters:</Text>
+            <Text>3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <FormItem>
             <CheckBox
