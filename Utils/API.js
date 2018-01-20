@@ -6,7 +6,7 @@ const clientID = 'client_id=F1HXPLN4RQVN33S1FGTGRHHUT4KEZAZVCEOM5YYS10YSA5DD';
 const clientSecret = 'client_secret=SV5APWFL0S5MWVEK0ZQ214PZTFYU1YXKLDQLV11QJQN1Y3FE';
 let near = "Ballston";
 const limit = 'limit=10';
-let categoryId = "categoryId=4bf58dd8d48988d148941735,4bf58dd8d48988d1c1941735,4bf58dd8d48988d1cb941735";
+let categoryId = "categoryId=4bf58dd8d48988d148941735";
 const name = "name=restaurant";
 const radius = "radius=4828"; //default is 5 miles
 // const restaurantId = ''
@@ -25,7 +25,7 @@ const API = {
   
   getRestaurant: (Ids)=>{
     //add commas in ''
-    categories = categoryId + ''
+    categories = categoryId + ',' + Ids
     let queryURL = `https://api.foursquare.com/v2/venues/search?near=${near}&${clientID}&${clientSecret}&v=20180118&${categories}&${name}&${radius}&${limit}`;
     return fetch(queryURL);
   }
