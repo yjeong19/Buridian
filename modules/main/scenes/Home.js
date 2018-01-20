@@ -1,5 +1,5 @@
 import React from 'react';
-var { View, StyleSheet, Alert, Text, Linking } = require('react-native');
+import { View, StyleSheet, Alert, Text, Linking, ScrollView } from 'react-native';
 import {Container} from 'native-base';
 
 import {Button} from 'react-native-elements'
@@ -118,8 +118,15 @@ class Home extends React.Component {
           alignItems: "center"}}>
           {/* <Picker
             numOptions={this.state.numOptions} /> */}
-          <View
+            <ScrollView style={{flex:1}}>
+          {/* <View
             style={{flex:1}}>
+            </View> */}
+            <Picker
+              numOptions={this.state.numOptions}
+              categoryId = {this.state.categoryId}
+              Id={this.handleRandomizeButton}
+               />
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -130,12 +137,7 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
-            </View>
-            <Picker
-              numOptions={this.state.numOptions}
-              categoryId = {this.state.categoryId}
-              Id={this.handleRandomizeButton}
-               />
+               </ScrollView>
 
 {/*
             <Button
