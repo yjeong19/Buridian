@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
-import { Container, Input, Header, Title, Content, Button, Icon, Text, Right, Body, Left, Picker, Form, Item as FormItem } from "native-base";
+import { Container, Input, Header, Title, Content, Button, Icon, Text, Right, Body, Left, Picker, View, Form, Item as FormItem } from "native-base";
 const Item = Picker.Item;
-import CheckBoxes from '../CheckBoxes';
-
+import CheckBox from "../CheckBox";
 
 export default class PickerExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
       numOptions: "key0",
-      locatoin: ""
+      location: ""
     };
   }
   onValueChange(value: string) {
@@ -36,12 +35,15 @@ export default class PickerExample extends Component {
       <Container>
         <Form style={{backgroundColor: '#e35141'}}>
           <FormItem>
+            <Text>Please enter your location (required):</Text>
+          </FormItem>
+          <FormItem>
             <Input
               style={{backgroundColor: 'white'}}
               value={this.state.location}
               onChange={this.handleInputChange}
               name="location"
-              placeholder="Enter Your Location (required)"
+              placeholder="e.g. Arlington"
             />
           </FormItem>
           <FormItem>
@@ -62,9 +64,82 @@ export default class PickerExample extends Component {
             <Text>Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <FormItem>
-            <CheckBoxes
-            onPress = {CheckBoxes.handleClickAsian}
-            />
+            <CheckBox
+              label='American'
+              categoryID='4bf58dd8d48988d14e941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Chinese'
+              categoryID='4bf58dd8d48988d10e941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Mexican'
+              categoryID='4bf58dd8d48988d1c1941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Italian'
+              categoryID='4bf58dd8d48988d110941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Vegetarian / Vegan Restaurant'
+              categoryID='4bf58dd8d48988d1d3941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Dessert'
+              categoryID='4bf58dd8d48988d1d0941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Greek'
+              categoryID='4bf58dd8d48988d10e941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Japanese'
+              categoryID='4bf58dd8d48988d111941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Thai'
+              categoryID='4bf58dd8d48988d149941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Vietnamese'
+              categoryID='4bf58dd8d48988d14a941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Breakfast'
+              categoryID='4bf58dd8d48988d143941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Indian'
+              categoryID='4bf58dd8d48988d10f941735'
+              onChange={(checked) => console.log('Checked!')}/>
+          </FormItem>
+          <FormItem>
+            <CheckBox
+              label='Middle Eastern'
+              categoryID='4bf58dd8d48988d115941735'
+              onChange={(checked) => console.log('Checked!')}/>
           </FormItem>
           <FormItem style={{justifyContent: 'center'}}>
             <Button
