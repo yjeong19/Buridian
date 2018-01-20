@@ -12,7 +12,7 @@ export default class PickerExample extends Component {
     super(props);
     this.state = {
       numOptions: "key0",
-      location: ""
+      location: "e.g. Ballston"
     };
   }
   onValueChange(value: string) {
@@ -21,16 +21,17 @@ export default class PickerExample extends Component {
     });
   }
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+  // handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit pressed");
+    console.log("Submit button pressed");
+    console.log(this.state.location);
     Actions.Results();
 
   };
@@ -49,9 +50,10 @@ export default class PickerExample extends Component {
           <FormItem>
             <Input
               style={{backgroundColor: 'white'}}
-              onChange={this.handleInputChange}
+              onChangeText={(location) => this.setState({location})}
+              value={this.state.location}
               name="location"
-              placeholder="e.g. Arlington"
+              type="text"
             />
           </FormItem>
           <FormItem>
