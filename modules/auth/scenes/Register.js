@@ -12,15 +12,15 @@ import Form from "../components/Form"
 import AuthContainer from "../components/AuthContainer"
 
 const fields = [
-    {
-        key:'username',
-        label: "Username",
-        placeholder:"Username",
-        autoFocus:false,
-        secureTextEntry:false,
-        value: "",
-        type: "text"
-    },
+  {
+      key:'username',
+      label: "Username",
+      placeholder:"Username",
+      autoFocus:false,
+      secureTextEntry:false,
+      value: "",
+      type: "text"
+  },
     {
         key:'email',
         label: "Email Address",
@@ -47,7 +47,16 @@ const fields = [
         secureTextEntry:true,
         value: "",
         type: "confirm_password"
-    }
+    },
+    {
+        key:'location',
+        label: "Location",
+        placeholder:"Location",
+        autoFocus:false,
+        secureTextEntry:false,
+        value: "",
+        type: "text"
+    },
 ];
 
 class Register extends React.Component {

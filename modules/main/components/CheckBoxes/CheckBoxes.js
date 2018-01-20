@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Header, Content, ListItem, CheckBox, Text, Body } from 'native-base';
+import { Container, Header, Content, ListItem, Text, Body, CheckBox } from 'native-base';
 
 
-export default class CheckBoxExample extends Component {
+export default class CheckBoxes extends Component {
 
     state = {
         asian: false,
@@ -12,13 +12,13 @@ export default class CheckBoxExample extends Component {
     }
 
     handleClickAsian () {
-        alert("4bf58dd8d48988d142941735")  
+        alert("4bf58dd8d48988d142941735")
     }
     handleClickBakery () {
         alert("4bf58dd8d48988d16a941735")
     }
 
-    handleClickDesert () {
+    handleClickDessert () {
         alert("4bf58dd8d48988d1d0941735")
     }
 
@@ -28,13 +28,11 @@ export default class CheckBoxExample extends Component {
 
     render() {
       return (
-        <Container style={{width: 360}}>
-          <Header />
-          <Content>
+        <Container>
             <ListItem>
-              <CheckBox 
+              <CheckBox
               checked={this.state.asian}
-              onPress={this.handleClickAsian} 
+              onPress={this.handleClickAsian}
               />
               <Body>
                 <Text>Asian Restaurant</Text>
@@ -42,18 +40,18 @@ export default class CheckBoxExample extends Component {
             </ListItem>
 
             <ListItem>
-              <CheckBox 
-              checked={false} 
+              <CheckBox
+              checked={false}
               onPress={this.handleclickItalian}
               />
               <Body>
                 <Text>Italian Restaurant</Text>
               </Body>
             </ListItem>
-             
+
             <ListItem>
-              <CheckBox 
-              checked={false} 
+              <CheckBox
+              checked={false}
               onPress={this.handleClickBakery}
               />
               <Body>
@@ -61,15 +59,14 @@ export default class CheckBoxExample extends Component {
               </Body>
             </ListItem>
             <ListItem>
-              <CheckBox 
-              checked={false} 
-              onPress={this.handleClickDesert}
+              <CheckBox
+              checked={false}
+              onPress={this.handleClickDessert}
               />
               <Body>
-                <Text>Desert</Text>
+                <Text>Dessert</Text>
               </Body>
             </ListItem>
-          </Content>
         </Container>
       );
     }
