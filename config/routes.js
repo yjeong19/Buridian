@@ -3,6 +3,7 @@ import {Scene, Router, ActionConst, Stack} from 'react-native-router-flux';
 
 import Splash from '../modules/splash/Splash';
 import Home from '../modules/main/scenes/Home';
+import Form from '../modules/main/scenes/Form';
 
 import Welcome from '../modules/auth/scenes/Welcome';
 import Register from '../modules/auth/scenes/Register';
@@ -46,7 +47,9 @@ export default class extends React.Component {
             </Stack>
 
             <Stack key="Main" initial={this.state.isLoggedIn}>
-              <Scene key="Home" component={Home} title="Buridian" initial={true} type={ActionConst.REPLACE}/>
+              <Scene key="Search" component={Form} title="Restaurant Search" initial={true} type={ActionConst.REPLACE}/>
+              <Scene key="Results" component={Home} title="Results"/>
+
             </Stack>
           </Scene>
         </Router>
