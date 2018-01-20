@@ -2,7 +2,7 @@ import React from 'react';
 import {Scene, Router, ActionConst, Stack} from 'react-native-router-flux';
 
 import Splash from '../modules/splash/Splash';
-import Home from '../modules/main/scenes/Home';
+import Results from '../modules/main/scenes/Results';
 import Form from '../modules/main/scenes/Form';
 
 import Welcome from '../modules/auth/scenes/Welcome';
