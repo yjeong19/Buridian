@@ -3,6 +3,7 @@ import { Platform } from "react-native";
 import { Container, Input, Header, Title, Content, Button, Icon, Text, Right, Body, Left, Picker, View, Form, Item as FormItem } from "native-base";
 const Item = Picker.Item;
 import CheckBox from "../CheckBox";
+import API from '../../../../Utils/API'
 
 export default class PickerExample extends Component {
   constructor(props) {
@@ -29,6 +30,10 @@ export default class PickerExample extends Component {
     event.preventDefault();
 
   };
+
+  onTest= ()=>{
+    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
+  }
 
   render() {
     return (
@@ -67,7 +72,7 @@ export default class PickerExample extends Component {
             <CheckBox
               label='American'
               categoryID='4bf58dd8d48988d14e941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              onChange={this.onTest}/>
           </FormItem>
           <FormItem>
             <CheckBox

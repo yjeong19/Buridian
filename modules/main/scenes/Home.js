@@ -1,5 +1,5 @@
 import React from 'react';
-var { View, StyleSheet, Alert, Text, Linking } = require('react-native');
+import { View, StyleSheet, Alert, Text, Linking, ScrollView } from 'react-native';
 import {Container} from 'native-base';
 
 import {Button} from 'react-native-elements'
@@ -13,6 +13,7 @@ import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
 import { actions as auth } from "../../auth"
+import PickerExample from '../components/Picker/Picker';
 var { signOut } = auth;
 
 class Home extends React.Component {
@@ -25,6 +26,7 @@ class Home extends React.Component {
         restaurantId: '',
         fourSquarePage: "",
         numOptions: "",
+        categoryId: [],
         asian: false
       }
 
@@ -69,10 +71,11 @@ class Home extends React.Component {
       handleSettingsPress = ()=>{
         Alert.alert("settings");
       }
+      
 
 
-      handleRandomizeButton = ()=>{
-        API.getRestaurant()
+      handleRandomizeButton = (x)=>{
+        API.getRestaurant(x)
         .then((response)=> response.json())
         .then((data)=>{
           // let data = JSON.parse(response._bodyInit);
@@ -107,6 +110,7 @@ class Home extends React.Component {
     }
 
     render() {
+      
       return (
         <Container style={{
           backgroundColor: '#e35141',
@@ -114,8 +118,15 @@ class Home extends React.Component {
           alignItems: "center"}}>
           {/* <Picker
             numOptions={this.state.numOptions} /> */}
-          <View
+            <ScrollView style={{flex:1}}>
+          {/* <View
             style={{flex:1}}>
+            </View> */}
+            <Picker
+              numOptions={this.state.numOptions}
+              categoryId = {this.state.categoryId}
+              Id={this.handleRandomizeButton}
+               />
           <DecisionSection
             image={this.state.imageUrl}
             style={{flex: 1}}
@@ -126,9 +137,7 @@ class Home extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
-            </View>
-            <Picker
-              numOptions={this.state.numOptions} />
+               </ScrollView>
 
 {/*
             <Button
