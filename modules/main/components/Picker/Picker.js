@@ -11,8 +11,8 @@ export default class PickerExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numOptions: "key0",
-      location: "e.g. Ballston"
+      numOptions: "1",
+      location: ""
     };
   }
   onValueChange(value: string) {
@@ -31,6 +31,7 @@ export default class PickerExample extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Submit button pressed");
+    console.log(this.state.numOptions);
     console.log(this.state.location);
     Actions.Results();
 
@@ -54,6 +55,7 @@ export default class PickerExample extends Component {
               value={this.state.location}
               name="location"
               type="text"
+              placeholder="e.g. Arlington"
             />
           </FormItem>
           <FormItem>
@@ -65,9 +67,9 @@ export default class PickerExample extends Component {
               mode="dropdown"
               selectedValue={this.state.numOptions}
               onValueChange={this.onValueChange.bind(this)}>
-              <Item label="One" value="key0" />
-              <Item label="Two" value="key1" />
-              <Item label="Three" value="key2" />
+              <Item label="One" value="1" />
+              <Item label="Two" value="2" />
+              <Item label="Three" value="3" />
             </Picker>
           </FormItem>
           <FormItem>
