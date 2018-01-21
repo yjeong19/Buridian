@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 export default class Categories [
+=======
+import React, from "react";
+
+export default class categories extends Component {
+
+[
+>>>>>>> b8abae572a4fa14b9280bc141e8ee876d1745c76
   {
     "id": 1,
     "label": "American",
@@ -72,3 +80,5 @@ export default class Categories [
     "clicked": false
   }
 ]
+
+}

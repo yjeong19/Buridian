@@ -145,7 +145,7 @@ export default class Checkbox extends PureComponent {
         )
     }
 
-    handleToggleChecked = () => {
+    handleToggleChecked = () => {   
 
       const { label } = this.props
 
