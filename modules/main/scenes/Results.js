@@ -14,6 +14,8 @@ import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
 import { actions as auth } from "../../auth"
 import PickerExample from '../components/Picker/Picker';
+import Home from './Form'
+
 var { signOut } = auth;
 
 class Results extends React.Component {
@@ -74,8 +76,8 @@ class Results extends React.Component {
 
 
 
-      handleRandomizeButton = (x)=>{
-        API.getRestaurant(x)
+      handleRandomizeButton = ()=>{
+        API.getRestaurant(category, near)
         .then((response)=> response.json())
         .then((data)=>{
           // let data = JSON.parse(response._bodyInit);
@@ -89,6 +91,7 @@ class Results extends React.Component {
           // console.log(data.response.venues[i]);
           // console.log("4sq url" + data.response.venues[i].menu.url);
           this.handlePhoto();
+          console.log(this.props)
         });
       }
 

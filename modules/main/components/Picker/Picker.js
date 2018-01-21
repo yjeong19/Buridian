@@ -13,7 +13,7 @@ export default class PickerExample extends Component {
     this.state = {
       numOptions: "key0",
       location: "e.g. Ballston",
-      categoryId: [];
+      categoryId: [],
     };
   }
   onValueChange(value: string) {
@@ -32,15 +32,21 @@ export default class PickerExample extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Submit button pressed");
-    console.log(this.state.numOptions);
-    console.log(this.state.location);
-    Actions.Results();
-    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
+    // console.log(this.state.numOptions);
+    // console.log(this.state.location);
+    // console.log(this.props)
+    Actions.Results(this.state);
+    // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
   };
 
   onAddCategory = Id =>{
-    console.log(event);
+    const IdArr = this.state.categoryId
+    const categoryId = IdArr.concat(Id) 
+    this.setState({categoryId})
+    // console.log(this.state.categoryId.concat(Id))
+    console.log(this.state.categoryId, 'line44')
+
   }
 
   render() {
