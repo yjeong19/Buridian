@@ -4,7 +4,7 @@ import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native'
 
 export default class Checkbox extends PureComponent {
   state = {
-    checked: true
+    checked: false
   };
 
     componentDidMount() {
@@ -15,7 +15,7 @@ export default class Checkbox extends PureComponent {
 
     componentDidUpdate(prevProps, prevState) {
         this.setState({ checked: this.state.checked })
-        // console.log("value of this.state.checked in cDU: " + this.state.checked);
+        console.log("State after cDU: " +this.state.checked);
 
     }
 
@@ -88,7 +88,6 @@ export default class Checkbox extends PureComponent {
         // console.log(label + " this.state.checked3: " + this.state.checked);
 
       }
-      console.log(label + "'s current checked state is: " + checked);
 
         // console.log("this.props: ", this.props.label, this.props);
         // const { label } = this.props
