@@ -40,7 +40,7 @@ export default class extends React.Component {
         <Router>
           <Scene key="root" hideNavBar>
             <Stack key="Auth" initial={!this.state.isLoggedIn}>
-              <Scene key="Welcome" component={Welcome} title="Welcome" initial={true} hideNavBar/>
+              <Scene key="Welcome" component={Welcome} title="Welcome to Buridian" initial={true} />
               <Scene key="Register" component={Register} title="Register"/>
               <Scene key="Login" component={Login} title="Login"/>
               <Scene key="ForgotPassword" component={ForgotPassword} title="ForgotPassword"/>
