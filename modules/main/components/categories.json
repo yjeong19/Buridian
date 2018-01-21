@@ -1,4 +1,4 @@
-[
+export default class Categories [
   {
     "id": 1,
     "label": "American",

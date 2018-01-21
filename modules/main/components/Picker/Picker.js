@@ -31,7 +31,6 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
     console.log("Submit button pressed", <CheckBox/>);
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
@@ -40,13 +39,6 @@ export default class PickerExample extends Component {
 
     // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
-=======
-    console.log("Submit button pressed");
-    console.log(this.state.numOptions);
-    console.log(this.state.location);
-    console.log(this.state.checked);
-    Actions.Results();
->>>>>>> 1a6190e2f02e453b973ab9e604b7f16aeb36766c
   };
 
   onAddCategory = Id =>{
