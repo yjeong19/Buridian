@@ -101,7 +101,6 @@ class Home extends React.Component {
       return (
         <Container style={{
           backgroundColor: '#e35141',
-          justifyContent: "center",
           alignItems: "center"}}>
             <Picker
               numOptions={this.state.numOptions}
