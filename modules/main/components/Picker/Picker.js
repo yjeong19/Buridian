@@ -34,7 +34,6 @@ export default class PickerExample extends Component {
     console.log(this.state.numOptions);
     console.log(this.state.location);
     Actions.Results();
-
   };
 
   onTest= ()=>{
@@ -85,13 +84,13 @@ export default class PickerExample extends Component {
             <CheckBox
               label='Chinese'
               categoryID='4bf58dd8d48988d10e941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              onChange={(checked) => console.log("this.props.checked: " + this.state.checked)}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Mexican'
               categoryID='4bf58dd8d48988d1c1941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              onChange={(checked) => console.log(checked)}/>
           </FormItem>
           <FormItem>
             <CheckBox
@@ -147,18 +146,11 @@ export default class PickerExample extends Component {
               categoryID='4bf58dd8d48988d10f941735'
               onChange={(checked) => console.log('Checked!')}/>
           </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Middle Eastern'
-              categoryID='4bf58dd8d48988d115941735'
-              onChange={(checked) => console.log('Checked!')}/>
-          </FormItem>
-          <FormItem style={{justifyContent: 'center'}}>
-            <Button
-
+          <FormItem style={{justifyContent: 'left'}}>
+            <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
               >
-              <Text small>Submit</Text>
+              <Text small style={{color: 'black'}}>Submit</Text>
             </Button>
           </FormItem>
         </Form>
