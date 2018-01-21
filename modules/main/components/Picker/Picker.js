@@ -33,6 +33,7 @@ export default class PickerExample extends Component {
     console.log("Submit button pressed");
     console.log(this.state.numOptions);
     console.log(this.state.location);
+    console.log(this.state.checked);
     Actions.Results();
   };
 
