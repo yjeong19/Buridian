@@ -11,14 +11,9 @@ export default class PickerExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       numOptions: "key0",
       location: "e.g. Ballston",
       categoryId: [],
-=======
-      numOptions: "1",
-      location: "",
->>>>>>> 746c899ffd2ae6b84c0d6e7cf24546354d8681b9
     };
   }
   onValueChange(value: string) {
@@ -36,19 +31,14 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed");
-<<<<<<< HEAD
+    console.log("Submit button pressed", <CheckBox/>);
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
     // console.log(this.props)
     Actions.Results(this.state);
+
     // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
-=======
-    console.log(this.state.numOptions);
-    console.log(this.state.location);
-    Actions.Results();
->>>>>>> 746c899ffd2ae6b84c0d6e7cf24546354d8681b9
   };
 
   onAddCategory = Id =>{
@@ -103,10 +93,11 @@ export default class PickerExample extends Component {
           </FormItem>
           <FormItem>
             <CheckBox
-              label='Chinese'
-              categoryID='4bf58dd8d48988d10e941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
+              // label='Chinese'
+              // categoryID='4bf58dd8d48988d10e941735'
+              // checked={this.state.checked}
+              // onChange={this.handleToggleChecked}
+              />
           </FormItem>
           <FormItem>
             <CheckBox

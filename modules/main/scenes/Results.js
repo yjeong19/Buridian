@@ -77,7 +77,7 @@ class Results extends React.Component {
 
 
       handleRandomizeButton = ()=>{
-        API.getRestaurant(category, near)
+        API.getRestaurant()
         .then((response)=> response.json())
         .then((data)=>{
           // let data = JSON.parse(response._bodyInit);
