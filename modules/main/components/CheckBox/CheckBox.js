@@ -3,20 +3,25 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native'
 
 export default class Checkbox extends PureComponent {
-    state = {
-        checked: false
-    };
+  state = {
+    checked: true
+  };
 
     componentDidMount() {
-        this.setState({ checked: this.props.checked })
+        this.setState({ checked: this.state.checked })
+        // console.log("value of this.state.checked in cDM: " + this.state.checked);
+
     }
 
     componentDidUpdate(prevProps, prevState) {
-        this.setState({ checked: this.props.checked })
+        this.setState({ checked: this.state.checked })
+        // console.log("value of this.state.checked in cDU: " + this.state.checked);
+
     }
 
     render() {
         const { checked } = this.state
+        // console.log("value of checked in render: " + checked);
         const {
             labelBefore,
             containerStyle,
@@ -66,11 +71,36 @@ export default class Checkbox extends PureComponent {
     }
 
     handleToggleChecked = () => {
-        const { label } = this.props
-        const checked = !this.state.checked
 
-        this.setState({ checked })
-        this.props.onChange && this.props.onChange({ label, checked })
+      const { label } = this.props
+
+      const checked = this.state.checked;
+      console.log(label + "'s state when clicked was: " + checked);
+
+      if (checked===false) {
+        this.setState({ checked : true});
+        // console.log(label +" this.state.checked2: " + this.state.checked);
+
+      }
+
+      else if (checked===true) {
+        this.setState({ checked: false});
+        // console.log(label + " this.state.checked3: " + this.state.checked);
+
+      }
+      console.log(label + "'s current checked state is: " + checked);
+
+        // console.log("this.props: ", this.props.label, this.props);
+        // const { label } = this.props
+        // let isChecked = !this.state.checked
+        // console.log(label + " isChecked before setState: " + isChecked);
+        // console.log(label + " this.state.checked before setState: " + this.state.checked);
+        // console.log(label + " this.props.checked before setState: " + this.props.checked);
+        // this.setState({ isChecked })
+        // this.props.onChange && this.props.onChange({ label, isChecked })
+        // console.log(label + " isChecked after setState: " + isChecked);
+        // console.log(label + " this.state.checked after setState: " + this.state.checked);
+        // console.log(label + " this.props.checked after setState: " + this.props.checked);
     }
 }
 
@@ -107,8 +137,8 @@ Checkbox.defaultProps = {
     numberOfLabelLines: 1,
     labelBefore: false,
     checked: false,
-    checkedImage: require('./img/check.png'),
-    uncheckedImage: require('./img/unchecked.png'),
+    checkedImage: require('./checked.png'),
+    uncheckedImage: require('./unchecked.png'),
     checkedComponent: null,
     uncheckedComponent: null
 }

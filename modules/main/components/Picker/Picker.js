@@ -12,7 +12,7 @@ export default class PickerExample extends Component {
     super(props);
     this.state = {
       numOptions: "1",
-      location: ""
+      location: "",
     };
   }
   onValueChange(value: string) {
@@ -84,67 +84,78 @@ export default class PickerExample extends Component {
             <CheckBox
               label='Chinese'
               categoryID='4bf58dd8d48988d10e941735'
-              onChange={(checked) => console.log("this.props.checked: " + this.state.checked)}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Mexican'
               categoryID='4bf58dd8d48988d1c1941735'
-              onChange={(checked) => console.log(checked)}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Italian'
               categoryID='4bf58dd8d48988d110941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Vegetarian / Vegan Restaurant'
               categoryID='4bf58dd8d48988d1d3941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Dessert'
               categoryID='4bf58dd8d48988d1d0941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Greek'
               categoryID='4bf58dd8d48988d10e941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Japanese'
               categoryID='4bf58dd8d48988d111941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Thai'
               categoryID='4bf58dd8d48988d149941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Vietnamese'
               categoryID='4bf58dd8d48988d14a941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Breakfast'
               categoryID='4bf58dd8d48988d143941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem>
             <CheckBox
               label='Indian'
               categoryID='4bf58dd8d48988d10f941735'
-              onChange={(checked) => console.log('Checked!')}/>
+              checked={this.state.checked}
+              onChange={this.handleToggleChecked}/>
           </FormItem>
           <FormItem style={{justifyContent: 'left'}}>
             <Button style={{backgroundColor: 'white'}}
