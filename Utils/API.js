@@ -15,16 +15,16 @@ const radius = "radius=4828"; //default is 5 miles
 
 
 const API = {
-  
+
   getPhoto: (restaurantId)=>{
     let photoURL = `https://api.foursquare.com/v2/venues/${restaurantId}/photos?&${clientID}&${clientSecret}&v=20180118`
     return fetch(photoURL);
   },
-  
+
   getRestaurant: (Ids, near)=>{
     //Restaurant in ID
     // let near = "";
-    const categoryId = "categoryId=";
+    const categoryId = "categoryId=4bf58dd8d48988d1c4941735";
     let categories;
     if (Ids){
       categories = categoryId + ',' + Ids

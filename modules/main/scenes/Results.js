@@ -5,7 +5,6 @@ import {Container} from 'native-base';
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
-import ImageSlider from '../components/ImageSlider';
 
 //import Checkbox
 import { color } from "../../../styles/Theme";
@@ -30,7 +29,6 @@ class Results extends React.Component {
         fourSquarePage: "",
         numOptions: "",
         categoryId: [],
-        asian: false,
         images: ["https://media.boingboing.net/wp-content/uploads/2017/03/surprised-cat-04.jpg", "https://www.hobartcity.com.au/files/assets/public/emergency-management/cat_and_dog-1024x899.jpg?w=1200"]
       }
 
@@ -40,7 +38,7 @@ class Results extends React.Component {
       }
 
       handlePhoto=()=>{
-        console.log(this.state.restaurantId)
+        console.log("Restaurant ID from handlePhoto: " + this.state.restaurantId)
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
@@ -50,13 +48,12 @@ class Results extends React.Component {
           /// this gives an array of links
           const photoObject = responseJson.response.photos.items[0];
           let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
-         
-          responseJson.response.photos 
-          ? this.setState({imageUrl}) 
-          : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
+          if (responseJson.response.photos===!null) {
+            this.setState({images: imageUrl})
+          }
         })
       }
-         
+
           // if(!responseJson.response.photos.items){
           //   this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
       //     //   console.log(this.state.url)
@@ -87,8 +84,6 @@ class Results extends React.Component {
         Alert.alert("settings");
       }
 
-
-
       handleRandomizeButton = ()=>{
         console.log(this.props.categoryObj[0].categoryID, this.props.location)
         API.getRestaurant(this.props.categoryObj[0].categoryID, this.props.location)
@@ -114,6 +109,10 @@ class Results extends React.Component {
         Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
       }
 
+      handleImagePress = () => {
+        Actions.ImageSlider();
+      }
+
 
     onSignOut() {
       this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
@@ -131,24 +130,22 @@ class Results extends React.Component {
 
       return (
         <Container style={{
+            flex: 0,
           backgroundColor: '#e35141',
           justifyContent: "center",
           alignItems: "center"}}>
-        <ScrollView style={{flex:1}}>
+        <ScrollView style={{flex:0}}>
           <DecisionSection
             image={this.state.imageUrl}
-            style={{flex: 1}}
+            style={{flex: -1}}
             randomized={this.handleRandomizeButton}
             restaurantName={this.state.restaurantName}
             address={this.state.address}
             phone={this.state.phone}
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
+            ImageSlider={this.handleImagePress}
             />
-          <ImageSlider images={this.state.images}/>
-        </ScrollView>
-
-
             <Button
               raised
               title={'LOG OUT'}
@@ -158,6 +155,7 @@ class Results extends React.Component {
               buttonStyle={{}} //optional
               textStyle={{fontWeight: "500"}}
               onPress={this.onSignOut.bind(this)}/>
+            </ScrollView>
         </Container>
       );
     }
