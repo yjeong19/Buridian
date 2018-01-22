@@ -30,7 +30,6 @@ class Results extends React.Component {
         fourSquarePage: "",
         numOptions: "",
         categoryId: [],
-        asian: false,
         images: ["https://media.boingboing.net/wp-content/uploads/2017/03/surprised-cat-04.jpg", "https://www.hobartcity.com.au/files/assets/public/emergency-management/cat_and_dog-1024x899.jpg?w=1200"]
       }
 
@@ -40,7 +39,7 @@ class Results extends React.Component {
       }
 
       handlePhoto=()=>{
-        console.log(this.state.restaurantId)
+        // console.log(this.state.restaurantId)
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
@@ -90,7 +89,7 @@ class Results extends React.Component {
 
 
       handleRandomizeButton = ()=>{
-        console.log(this.props.categoryObj[0].categoryID, this.props.location)
+        // console.log(this.props.categoryObj[0].categoryID, this.props.location)
         API.getRestaurant(this.props.categoryObj[0].categoryID, this.props.location)
         .then((response)=> response.json())
         .then((data)=>{
@@ -107,7 +106,7 @@ class Results extends React.Component {
           this.handlePhoto();
           console.log(this.props)
         });
-        console.log(this.props);
+        // console.log(this.props);
       }
 
       handleYesButton = () => {

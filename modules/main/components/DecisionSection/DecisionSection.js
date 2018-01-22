@@ -7,6 +7,15 @@ import API from '../../../../Utils/API'
 
 
 export default class DecisionSection extends Component{
+  state={
+    counter: 0
+  }
+  // componentDidMount(){
+  //   // var counter = this.props.
+  //   this.setState({counter: this.props.counter});
+  //   console.log(this.props.counter);
+  // }
+
   render(){
     const styles = StyleSheet.create({
       image: {
@@ -14,6 +23,7 @@ export default class DecisionSection extends Component{
         width: 320,
       }
     });
+
 
         console.log(this.props.image,"line 31 ====================================");
         return(

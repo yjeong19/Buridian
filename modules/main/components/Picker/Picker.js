@@ -98,13 +98,14 @@ export default class PickerExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numOptions: "1",
+      numOptions: 1,
       location: "",
       categories,
-      categoryObj: {}
+      categoryObj: []
     };
   }
-  onValueChange(value: string) {
+  onValueChange(value: integer) {
+    console.log(this.state.numOptions)
     this.setState({
       numOptions: value
     });
@@ -122,7 +123,7 @@ export default class PickerExample extends Component {
     Actions.Results({
       categoryObj: this.state.categoryObj,
       location: this.state.location,
-      numOptions: this.state.numOptions
+      counter: this.state.numOptions
     });
   }
 
@@ -130,15 +131,37 @@ export default class PickerExample extends Component {
 
   };
 
-
   onAddCategory = obj =>{
-    // const IdArr = this.state.categoryId
-    // const categoryId = IdArr.concat(Id) 
-    // this.setState({categoryId})
+
+    if(typeof obj== 'object'){
+    const IdArr = this.state.categoryObj
+    console.log(obj, IdArr, 'line 138')
+      if (IdArr=== undefined){
+        IdArr = []
+      }
+    const categoryObj = IdArr.concat(obj) 
+    // this.setState({categoryId}
     // console.log(this.state.categoryId.concat(Id))
-    this.setState({categoryObj: obj})
-    // console.log(this.state.categoryObj, '127 Picker.js')
-    
+
+    this.setState({categoryObj})
+    // console.log(this.state.categoryObj, '140 Picker.js')
+    }
+    else if(typeof obj == 'string'){
+      const categoryArr = this.state.categoryObj
+      console.log(this.state.categoryObj, 'line 151------------')
+      if (categoryArr === undefined){
+        categoryArr =this.state.categoryObj
+      }
+      let categoryObj = categoryArr.forEach((catObj, i)=>{
+        if(catObj.label === obj){
+          alert('fuck')
+         categoryObj = categoryArr.splice(i, 1)
+         this.setState({categoryObj})
+        }
+      })
+
+    }
+   
 
   }
 
@@ -168,9 +191,9 @@ export default class PickerExample extends Component {
               mode="dropdown"
               selectedValue={this.state.numOptions}
               onValueChange={this.onValueChange.bind(this)}>
-              <Item label="One" value="1" />
-              <Item label="Two" value="2" />
-              <Item label="Three" value="3" />
+              <Item label="One" value={1} />
+              <Item label="Two" value={2} />
+              <Item label="Three" value={3} />
             </Picker>
           </FormItem>
           <FormItem>
