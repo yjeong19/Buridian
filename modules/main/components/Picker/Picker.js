@@ -16,6 +16,7 @@ export default class PickerExample extends Component {
     };
   }
   onValueChange(value: string) {
+    console.log(this.state.numOptions)
     this.setState({
       numOptions: value
     });
@@ -34,10 +35,6 @@ export default class PickerExample extends Component {
     Actions.Results();
 
   };
-
-  onTest= ()=>{
-    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
-  }
 
   render() {
     return (
