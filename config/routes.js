@@ -6,6 +6,7 @@ import {Scene, Router, ActionConst, Stack} from 'react-native-router-flux';
 import Splash from '../modules/splash/Splash';
 import Results from '../modules/main/scenes/Results';
 import Form from '../modules/main/scenes/Form';
+import {headerImage} from './logo.png';
 
 import Welcome from '../modules/auth/scenes/Welcome';
 import Register from '../modules/auth/scenes/Register';
@@ -44,7 +45,7 @@ export default class extends React.Component {
             <Stack key="Auth" initial={!this.state.isLoggedIn}>
               <Scene key="Welcome" component={Welcome} renderTitle={() => (
                 <View>
-                  <Image source={require('../images/logo.png')} />
+                  <Image source={headerImage} />
                 </View>
               )} initial={true} />
               <Scene key="Register" component={Register} title="Register"/>
