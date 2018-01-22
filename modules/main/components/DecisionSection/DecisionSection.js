@@ -7,13 +7,13 @@ import API from '../../../../Utils/API'
 
 
 export default class DecisionSection extends Component{
-    render(){
-      const styles = StyleSheet.create({
-        image: {
-          flex: 1,
-            width: 320,
-            }
-        });
+  render(){
+    const styles = StyleSheet.create({
+      image: {
+        flex: 1,
+        width: 320,
+      }
+    });
 
         console.log(this.props.image,"line 31 ====================================");
         return(
