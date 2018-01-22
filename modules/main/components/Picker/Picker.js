@@ -5,6 +5,7 @@ const Item = Picker.Item;
 import CheckBox from "../CheckBox";
 import API from '../../../../Utils/API'
 import {Actions} from 'react-native-router-flux';
+import Checkbox from "../CheckBox/CheckBox";
 
 const categories = [
   {
@@ -99,7 +100,8 @@ export default class PickerExample extends Component {
     this.state = {
       numOptions: "1",
       location: "",
-      categories
+      categories,
+      categoryObj: {}
     };
   }
   onValueChange(value: string) {
@@ -110,15 +112,30 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed");
-    console.log(this.state.numOptions);
-    console.log(this.state.location);
-    console.log(this.state.checked);
-    Actions.Results();
+    console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
+    // console.log(this.state.numOptions);
+    // console.log(this.state.location);
+    console.log(<CheckBox />)
+    Actions.Results({
+      categoryObj: this.state.categoryObj,
+      location: this.state.location,
+      numOptions: this.state.numOptions
+    });
+
+    // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
+
   };
 
-  onTest= ()=>{
-    this.props.Id('4bf58dd8d48988d10f941735,4bf58dd8d48988d1d0941735,4bf58dd8d48988d10e941735')
+
+  onAddCategory = obj =>{
+    // const IdArr = this.state.categoryId
+    // const categoryId = IdArr.concat(Id) 
+    // this.setState({categoryId})
+    // console.log(this.state.categoryId.concat(Id))
+    this.setState({categoryObj: obj})
+    // console.log(this.state.categoryObj, '127 Picker.js')
+    
+
   }
 
   render() {
@@ -155,12 +172,15 @@ export default class PickerExample extends Component {
           <FormItem>
             <Text>3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
+          <ScrollView>
           <FormItem style={{justifyContent: 'left', alignItems: 'left', flexDirection: 'column'}}>
             {this.state.categories.map((categories)=>(
               <CheckBox
+                key={categories.id}
                 id={categories.id}
                 label={categories.label}
                 checked={this.state.checked}
+<<<<<<< HEAD
                 onChange={this.handleToggleChecked}
                 placeholderImage={categories.placeholderImage}
                 />
@@ -168,6 +188,14 @@ export default class PickerExample extends Component {
 
           </FormItem>
 
+=======
+                // onChange={this.handleToggleChecked}
+                categoryArr = {this.state.categories}
+                addCategory={this.onAddCategory}
+                />
+            ))}
+          </FormItem>
+>>>>>>> 9ae7a277093a16442f126a73c3bc8b0d3273b9ce
           <FormItem style={{justifyContent: 'left'}}>
             <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
@@ -175,6 +203,7 @@ export default class PickerExample extends Component {
               <Text small style={{color: 'black'}}>Submit</Text>
             </Button>
           </FormItem>
+        </ScrollView>
         </Form>
       </Container>
     );

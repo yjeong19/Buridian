@@ -14,6 +14,8 @@ import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
 import { actions as auth } from "../../auth"
 import PickerExample from '../components/Picker/Picker';
+import Home from './Form'
+
 var { signOut } = auth;
 
 class Results extends React.Component {
@@ -36,28 +38,35 @@ class Results extends React.Component {
       }
 
       handlePhoto=()=>{
+        console.log(this.state.restaurantId)
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
-          if(!responseJson.response.photos.items){
-            this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
-            console.log(this.state.url)
-          }
-          else{
-            const photoObject = responseJson.response.photos.items[0];
-            // let imageUrl = photoObject.map(photos =>{
-            //   return photos.prefix + '300x500' + photos.suffix;
-            // })
-            /// this gives an array of links
-
-            let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix
-
-
-            console.log(imageUrl)
-            this.setState({imageUrl})
-          }
+          const photoObject = responseJson.response.photos.items[0];
+          let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
+         
+          responseJson.response.photos 
+          ? this.setState({imageUrl}) 
+          : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
         })
       }
+         
+          // if(!responseJson.response.photos.items){
+          //   this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
+      //     //   console.log(this.state.url)
+      //     // }
+      //     // else{
+      //       // let imageUrl = photoObject.map(photos =>{
+      //       //   return photos.prefix + '300x500' + photos.suffix;
+      //       // })
+      //       /// this gives an array of links
+
+
+
+      //       console.log(imageUrl)
+      //     }
+      //   })
+      // }
 
       handleAPI = ()=>{
         API.getRestaurant()
@@ -74,8 +83,9 @@ class Results extends React.Component {
 
 
 
-      handleRandomizeButton = (x)=>{
-        API.getRestaurant(x)
+      handleRandomizeButton = ()=>{
+        console.log(this.props.categoryObj[0].categoryID, this.props.location)
+        API.getRestaurant(this.props.categoryObj[0].categoryID, this.props.location)
         .then((response)=> response.json())
         .then((data)=>{
           // let data = JSON.parse(response._bodyInit);
@@ -89,7 +99,9 @@ class Results extends React.Component {
           // console.log(data.response.venues[i]);
           // console.log("4sq url" + data.response.venues[i].menu.url);
           this.handlePhoto();
+          console.log(this.props)
         });
+        console.log(this.props);
       }
 
       handleYesButton = () => {
