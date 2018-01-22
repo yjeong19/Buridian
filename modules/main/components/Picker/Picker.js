@@ -177,7 +177,7 @@ export default class PickerExample extends Component {
             <Text>3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <ScrollView>
-          <FormItem style={{justifyContent: 'left', alignItems: 'left', flexDirection: 'column'}}>
+          <FormItem style={{justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column'}}>
             {this.state.categories.map((categories)=>(
               <CheckBox
                 key={categories.id}
@@ -190,7 +190,7 @@ export default class PickerExample extends Component {
                 />
             ))}
           </FormItem>
-          <FormItem style={{justifyContent: 'left'}}>
+          <FormItem style={{justifyContent: 'flex-start'}}>
             <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
               >
