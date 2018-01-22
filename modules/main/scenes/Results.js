@@ -5,6 +5,7 @@ import {Container} from 'native-base';
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
+import ImageSlider from '../components/ImageSlider';
 
 //import Checkbox
 import { color } from "../../../styles/Theme";
@@ -27,7 +28,8 @@ class Results extends React.Component {
         fourSquarePage: "",
         numOptions: "",
         categoryId: [],
-        asian: false
+        asian: false,
+        images: ["https://media.boingboing.net/wp-content/uploads/2017/03/surprised-cat-04.jpg", "https://www.hobartcity.com.au/files/assets/public/emergency-management/cat_and_dog-1024x899.jpg?w=1200"]
       }
 
       componentDidMount(){
@@ -127,6 +129,7 @@ class Results extends React.Component {
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
             />
+          <ImageSlider images={this.state.images}/>
         </ScrollView>
 
 
