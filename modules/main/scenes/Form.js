@@ -102,11 +102,13 @@ class Home extends React.Component {
         <Container style={{
           backgroundColor: '#e35141',
           alignItems: "center"}}>
+          <ScrollView>
             <Picker
               numOptions={this.state.numOptions}
               style={{flex:1}}
               API = {this.handleRandomizeButton} />
-            <Button
+            </ScrollView>
+            {/* <Button
               raised
               title={'LOG OUT'}
               borderRadius={4}
@@ -114,7 +116,7 @@ class Home extends React.Component {
               containerViewStyle={{marginVertical:0, marginHorizontal:0}}
               buttonStyle={{}} //optional
               textStyle={{fontWeight: "500"}}
-              onPress={this.onSignOut.bind(this)}/>
+              onPress={this.onSignOut.bind(this)}/> */}
         </Container>
       );
     }

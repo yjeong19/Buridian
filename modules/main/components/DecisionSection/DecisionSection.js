@@ -7,13 +7,21 @@ import API from '../../../../Utils/API'
 
 
 export default class DecisionSection extends Component{
-    render(){
-      const styles = StyleSheet.create({
-        image: {
-          flex: 1,
-            width: 320,
-            }
-        });
+  render(){
+    const styles = StyleSheet.create({
+      image: {
+        flex: 1,
+        width: 320,
+      }
+    });
+  const imageUrl = ()=>{    
+    if (!this.props.image){
+      return 'http://lorempicsum.com/futurama/350/200/1'
+    }
+    else{
+      return this.props.image
+    }
+  }
 
         console.log(this.props.image,"line 31 ====================================");
         return(

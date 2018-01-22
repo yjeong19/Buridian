@@ -3,82 +3,12 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native'
 // import Categories from '../categories.json'
 
-const Categories = [  {
-    "id": 1,
-    "label": "American",
-    "categoryID": "4bf58dd8d48988d14e941735",
-    "clicked": false
-  },
-  {
-    "id": 2,
-    "label": "Chinese",
-    "categoryID": "4bf58dd8d48988d10e941735",
-    "clicked": false
-  },
-  {
-    "id": 3,
-    "label": "Mexican",
-    "categoryID": "4bf58dd8d48988d1c1941735",
-    "clicked": false
-  },
-  {
-    "id": 4,
-    "label": "Italian",
-    "categoryID": "4bf58dd8d48988d110941735",
-    "clicked": false
-  },
-  {
-    "id": 5,
-    "label": "Vegetarian / Vegan Restaurant",
-    "categoryID": "4bf58dd8d48988d1d3941735",
-    "clicked": false
-  },
-  {
-    "id": 6,
-    "label": "Dessert",
-    "categoryID": "4bf58dd8d48988d1d0941735",
-    "clicked": false
-  },
-  {
-    "id": 7,
-    "label": "Greek",
-    "categoryID": "4bf58dd8d48988d10e941735",
-    "clicked": false
-  },
-  {
-    "id": 8,
-    "label": "Japanese",
-    "categoryID": "4bf58dd8d48988d111941735",
-    "clicked": false
-  },
-  {
-    "id": 9,
-    "label": "Thai",
-    "categoryID": "4bf58dd8d48988d149941735",
-    "clicked": false
-  },
-  {
-    "id": 10,
-    "label": "Vietnamese",
-    "categoryID": "4bf58dd8d48988d14a941735",
-    "clicked": false
-  },
-  {
-    "id": 11,
-    "label": "Breakfast",
-    "categoryID": "4bf58dd8d48988d143941735",
-    "clicked": false
-  },
-  {
-    "id": 12,
-    "label": "Indian",
-    "categoryID": "4bf58dd8d48988d10f941735",
-    "clicked": false
-  }]
-
 export default class Checkbox extends PureComponent {
   state = {
-    checked: false
+    checked: false,
+    label: '',
+    categories: [],
+    arrIndex: ''
   };
 
 
@@ -90,7 +20,10 @@ export default class Checkbox extends PureComponent {
 
     componentDidUpdate(prevProps, prevState) {
         this.setState({ checked: this.state.checked })
-        console.log("State after cDU: " +this.state.checked);
+        // console.log("State after cDU: " +this.state.checked + 'and' + this.state.label);
+        this.props.addCategory(this.state.categories)
+        
+        console.log('24 checkbox', this.state.categories)
 
     }
 
@@ -150,16 +83,44 @@ export default class Checkbox extends PureComponent {
       const { label } = this.props
 
       const checked = this.state.checked;
-      console.log(label + "'s state when clicked was: " + checked);
+    //   const categoriesMap = this.props.categoryArr.map(categories=>{
+    //     return categories.label
+    //   })
+      console.log(label + "'s state when clicked was: " + checked + 'and' + this.state.label);
+      console.log(this.state.categories, 'CheckBox89 before check');
+      const categoryArr = this.props.categoryArr
 
       if (checked===false) {
         this.setState({ checked : true});
+        this.setState({label})
+
+        const categoryObj = categoryArr.forEach((category, i) => {
+            if(category.label === label){
+                const catArr = this.state.categories
+                const categories = catArr.concat(categoryArr[i]);
+                this.setState({categories})
+                // this.props.addCategory(this.state.categories)
+                
+            }
+        });
+        
+        // alert(this.state.arrIndex, '99 cb');
+        return this.state
         // console.log(label +" this.state.checked2: " + this.state.checked);
 
       }
 
       else if (checked===true) {
+        let categories = this.state.categories;
+        let i = categories.length - 1;
+        categories.splice(i, 1);
+        
+        this.setState({categories});
         this.setState({ checked: false});
+        this.setState({label: ''})
+        // this.props.addCategory(this.state.categories)
+        
+        return this.state
         // console.log(label + " this.state.checked3: " + this.state.checked);
 
       }
@@ -175,6 +136,7 @@ export default class Checkbox extends PureComponent {
         // console.log(label + " isChecked after setState: " + isChecked);
         // console.log(label + " this.state.checked after setState: " + this.state.checked);
         // console.log(label + " this.props.checked after setState: " + this.props.checked);
+        // this.props.addCategory(this.state.categories)
     }
 }
 

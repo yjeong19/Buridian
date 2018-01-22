@@ -5,6 +5,7 @@ const Item = Picker.Item;
 import CheckBox from "../CheckBox";
 import API from '../../../../Utils/API'
 import {Actions} from 'react-native-router-flux';
+import Checkbox from "../CheckBox/CheckBox";
 
 const categories = [
   {
@@ -87,7 +88,8 @@ export default class PickerExample extends Component {
     this.state = {
       numOptions: "1",
       location: "",
-      categories
+      categories,
+      categoryObj: {}
     };
   }
   onValueChange(value: string) {
@@ -105,22 +107,29 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed", <CheckBox/>);
+    console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
-    // console.log(this.props)
-    Actions.Results(this.state);
+    console.log(<CheckBox />)
+    Actions.Results({
+      categoryObj: this.state.categoryObj,
+      location: this.state.location,
+      numOptions: this.state.numOptions
+    });
 
     // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
   };
 
-  onAddCategory = Id =>{
-    const IdArr = this.state.categoryId
-    const categoryId = IdArr.concat(Id) 
-    this.setState({categoryId})
+
+  onAddCategory = obj =>{
+    // const IdArr = this.state.categoryId
+    // const categoryId = IdArr.concat(Id) 
+    // this.setState({categoryId})
     // console.log(this.state.categoryId.concat(Id))
-    console.log(this.state.categoryId, 'line44')
+    this.setState({categoryObj: obj})
+    // console.log(this.state.categoryObj, '127 Picker.js')
+    
 
   }
 
@@ -158,102 +167,20 @@ export default class PickerExample extends Component {
           <FormItem>
             <Text>3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
+          <ScrollView>
           <FormItem style={{justifyContent: 'left', alignItems: 'left', flexDirection: 'column'}}>
             {this.state.categories.map((categories)=>(
               <CheckBox
+                key={categories.id}
                 id={categories.id}
                 label={categories.label}
                 checked={this.state.checked}
-                onChange={this.handleToggleChecked}
+                // onChange={this.handleToggleChecked}
+                categoryArr = {this.state.categories}
+                addCategory={this.onAddCategory}
                 />
             ))}
-
           </FormItem>
-
-          {/*<FormItem>
-            <CheckBox
-              label='American'
-              categoryID='4bf58dd8d48988d14e941735'
-              onChange={this.onAddCategory}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              // label='Chinese'
-              // categoryID='4bf58dd8d48988d10e941735'
-              // checked={this.state.checked}
-              // onChange={this.handleToggleChecked}
-              />
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Mexican'
-              categoryID='4bf58dd8d48988d1c1941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Italian'
-              categoryID='4bf58dd8d48988d110941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Vegetarian / Vegan Restaurant'
-              categoryID='4bf58dd8d48988d1d3941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Dessert'
-              categoryID='4bf58dd8d48988d1d0941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Greek'
-              categoryID='4bf58dd8d48988d10e941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Japanese'
-              categoryID='4bf58dd8d48988d111941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Thai'
-              categoryID='4bf58dd8d48988d149941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Vietnamese'
-              categoryID='4bf58dd8d48988d14a941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Breakfast'
-              categoryID='4bf58dd8d48988d143941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Indian'
-              categoryID='4bf58dd8d48988d10f941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>*/}
           <FormItem style={{justifyContent: 'left'}}>
             <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
@@ -261,8 +188,8 @@ export default class PickerExample extends Component {
               <Text small style={{color: 'black'}}>Submit</Text>
             </Button>
           </FormItem>
+        </ScrollView>
         </Form>
-        {/* </ScrollView> */}
       </Container>
     );
   }
