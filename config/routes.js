@@ -1,4 +1,6 @@
 import React from 'react';
+import { View, Image } from 'react-native';
+
 import {Scene, Router, ActionConst, Stack} from 'react-native-router-flux';
 
 import Splash from '../modules/splash/Splash';
@@ -40,7 +42,11 @@ export default class extends React.Component {
         <Router>
           <Scene key="root" hideNavBar>
             <Stack key="Auth" initial={!this.state.isLoggedIn}>
-              <Scene key="Welcome" component={Welcome} title="Welcome to Buridian" initial={true} />
+              <Scene key="Welcome" component={Welcome} renderTitle={() => (
+                <View>
+                  <Image source={require('../images/logo.png')} />
+                </View>
+              )} initial={true} />
               <Scene key="Register" component={Register} title="Register"/>
               <Scene key="Login" component={Login} title="Login"/>
               <Scene key="ForgotPassword" component={ForgotPassword} title="ForgotPassword"/>
