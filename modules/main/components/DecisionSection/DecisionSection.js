@@ -14,14 +14,7 @@ export default class DecisionSection extends Component{
         width: 320,
       }
     });
-  const imageUrl = ()=>{    
-    if (!this.props.image){
-      return 'http://lorempicsum.com/futurama/350/200/1'
-    }
-    else{
-      return this.props.image
-    }
-  }
+
 
         console.log(this.props.image,"line 31 ====================================");
         return(
