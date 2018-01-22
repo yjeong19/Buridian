@@ -44,6 +44,10 @@ class Results extends React.Component {
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
+              // let imageUrl = photoObject.map(photos =>{
+          //   return photos.prefix + '300x500' + photos.suffix;
+          // })
+          /// this gives an array of links
           const photoObject = responseJson.response.photos.items[0];
           let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
          

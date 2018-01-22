@@ -115,12 +115,16 @@ export default class PickerExample extends Component {
     console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
-    console.log(<CheckBox />)
+    if(this.state.location.trim() === ''){
+      alert('Please complete the form')
+    }
+    else{
     Actions.Results({
       categoryObj: this.state.categoryObj,
       location: this.state.location,
       numOptions: this.state.numOptions
     });
+  }
 
     // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
@@ -180,22 +184,12 @@ export default class PickerExample extends Component {
                 id={categories.id}
                 label={categories.label}
                 checked={this.state.checked}
-<<<<<<< HEAD
-                onChange={this.handleToggleChecked}
-                placeholderImage={categories.placeholderImage}
-                />
-            ))}
-
-          </FormItem>
-
-=======
                 // onChange={this.handleToggleChecked}
                 categoryArr = {this.state.categories}
                 addCategory={this.onAddCategory}
                 />
             ))}
           </FormItem>
->>>>>>> 9ae7a277093a16442f126a73c3bc8b0d3273b9ce
           <FormItem style={{justifyContent: 'left'}}>
             <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
