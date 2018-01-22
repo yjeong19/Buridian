@@ -16,6 +16,7 @@ export default class Checkbox extends PureComponent {
     componentDidUpdate(prevProps, prevState) {
         this.setState({ checked: this.state.checked })
         console.log("State after cDU: " +this.state.checked);
+        console.log("this.state after cDU:  " + this.state.label);
 
     }
 

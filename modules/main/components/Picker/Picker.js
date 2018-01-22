@@ -11,73 +11,85 @@ const categories = [
     "id": 1,
     "label": "American",
     "categoryID": "4bf58dd8d48988d14e941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"
   },
   {
     "id": 2,
     "label": "Chinese",
     "categoryID": "4bf58dd8d48988d10e941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png"
   },
   {
     "id": 3,
     "label": "Mexican",
     "categoryID": "4bf58dd8d48988d1c1941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/2000px-Flag_of_Mexico.svg.png"
   },
   {
     "id": 4,
     "label": "Italian",
     "categoryID": "4bf58dd8d48988d110941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg"
   },
   {
     "id": 5,
     "label": "Vegetarian / Vegan Restaurant",
     "categoryID": "4bf58dd8d48988d1d3941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://dixiediner.com/wp-content/uploads/2014/10/vegan-VEGETARIAN.jpg"
   },
   {
     "id": 6,
     "label": "Dessert",
     "categoryID": "4bf58dd8d48988d1d0941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://www.ebuzztoday.com/wp-content/uploads/21-lip-smacking-chocolate-desserts-made-easier-collage.jpg"
   },
   {
     "id": 7,
     "label": "Greek",
     "categoryID": "4bf58dd8d48988d10e941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/2000px-Flag_of_Greece.svg.png"
   },
   {
     "id": 8,
     "label": "Japanese",
     "categoryID": "4bf58dd8d48988d111941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1280px-Flag_of_Japan.svg.png"
   },
   {
     "id": 9,
     "label": "Thai",
     "categoryID": "4bf58dd8d48988d149941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/255px-Flag_of_Thailand.svg.png"
   },
   {
     "id": 10,
     "label": "Vietnamese",
     "categoryID": "4bf58dd8d48988d14a941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png"
   },
   {
     "id": 11,
     "label": "Breakfast",
     "categoryID": "4bf58dd8d48988d143941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://s3-media4.fl.yelpcdn.com/bphoto/VqkfgXfqk5SWTFnf6JabvQ/o.jpg"
   },
   {
     "id": 12,
     "label": "Indian",
     "categoryID": "4bf58dd8d48988d10f941735",
-    "clicked": false
+    "clicked": false,
+    "placeholderImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"
   }
 ];
 
@@ -95,13 +107,6 @@ export default class PickerExample extends Component {
       numOptions: value
     });
   }
-
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -157,94 +162,12 @@ export default class PickerExample extends Component {
                 label={categories.label}
                 checked={this.state.checked}
                 onChange={this.handleToggleChecked}
+                placeholderImage={categories.placeholderImage}
                 />
             ))}
 
           </FormItem>
 
-          {/*<FormItem>
-            <CheckBox
-              label='American'
-              categoryID='4bf58dd8d48988d14e941735'
-              onChange={this.onTest}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Chinese'
-              categoryID='4bf58dd8d48988d10e941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Mexican'
-              categoryID='4bf58dd8d48988d1c1941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Italian'
-              categoryID='4bf58dd8d48988d110941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Vegetarian / Vegan Restaurant'
-              categoryID='4bf58dd8d48988d1d3941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Dessert'
-              categoryID='4bf58dd8d48988d1d0941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Greek'
-              categoryID='4bf58dd8d48988d10e941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Japanese'
-              categoryID='4bf58dd8d48988d111941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Thai'
-              categoryID='4bf58dd8d48988d149941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Vietnamese'
-              categoryID='4bf58dd8d48988d14a941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Breakfast'
-              categoryID='4bf58dd8d48988d143941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>
-          <FormItem>
-            <CheckBox
-              label='Indian'
-              categoryID='4bf58dd8d48988d10f941735'
-              checked={this.state.checked}
-              onChange={this.handleToggleChecked}/>
-          </FormItem>*/}
           <FormItem style={{justifyContent: 'left'}}>
             <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
