@@ -145,9 +145,9 @@ export default class PickerExample extends Component {
   render() {
     return (
       <Container style={{width: 330}} >
-        <Form style={{backgroundColor: '#e35141'}}>
-          <FormItem>
-            <Text>1) Please enter your location (required):</Text>
+        <Form style={{backgroundColor: 'white' , borderRadius: 20, marginTop: 20}}>
+          <FormItem style ={{marginTop: 20}}>
+            <Text style ={{fontWeight: 'bold'}} >1) Please enter your location (required):</Text>
           </FormItem>
           <FormItem>
             <Input
@@ -160,21 +160,21 @@ export default class PickerExample extends Component {
             />
           </FormItem>
           <FormItem>
-            <Text>2) Choose # of Restaurant options you want:</Text>
+            <Text style ={{fontWeight: 'bold'}} >2) Choose # of Restaurant options you want:</Text>
           </FormItem>
-          <FormItem style={{justifyContent: 'center'}}>
-            <Picker style={{backgroundColor: 'white'}}
+          <FormItem style={{justifyContent: 'center', color: 'white', padding: 10}}>
+            <Picker style={{backgroundColor: 'lightgrey', width: 100, justifyContent:'center', fontWeight: 'bold'}}
               iosHeader="Select one"
               mode="dropdown"
               selectedValue={this.state.numOptions}
               onValueChange={this.onValueChange.bind(this)}>
-              <Item label="One" value="1" />
+              <Item label="One" value="1" style ={{fontWeight:'bold'}}/>
               <Item label="Two" value="2" />
               <Item label="Three" value="3" />
             </Picker>
           </FormItem>
-          <FormItem>
-            <Text>3) Choose any category that you want included in the search parameters:</Text>
+          <FormItem >
+            <Text style ={{fontWeight: 'bold'}} >3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <ScrollView>
           <FormItem style={{justifyContent: 'left', alignItems: 'left', flexDirection: 'column'}}>
@@ -190,11 +190,11 @@ export default class PickerExample extends Component {
                 />
             ))}
           </FormItem>
-          <FormItem style={{justifyContent: 'left'}}>
-            <Button style={{backgroundColor: 'white'}}
+          <FormItem style={{justifyContent: 'center', padding: 10}}>
+            <Button style={{backgroundColor: 'lightgrey'}}
               onPress={this.handleFormSubmit}
               >
-              <Text small style={{color: 'black'}}>Submit</Text>
+              <Text small style={{color: 'black', fontWeight:'bold', width:100, textAlign:'center'}}>Submit</Text>
             </Button>
           </FormItem>
         </ScrollView>

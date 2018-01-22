@@ -5,13 +5,14 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "rgb(246, 247, 248)",
+        backgroundColor: "#e35141",
     },
     activityIndicator: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 80
+        height: 80,
+       
     }
 });
 

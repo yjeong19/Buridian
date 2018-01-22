@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Image, StyleSheet, Alert } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
 import API from '../../../../Utils/API'
+
 // import ImageSlider from 'react-native-image-slider'
 
 
@@ -12,6 +13,7 @@ export default class DecisionSection extends Component{
       image: {
         flex: 1,
         width: 320,
+        justifyContent: 'center'
       }
     });
 

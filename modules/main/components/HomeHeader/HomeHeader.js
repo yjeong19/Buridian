@@ -12,7 +12,7 @@ export default class HomeHeader extends Component {
 
     render (){
       return(
-      <Container style={{flex: .3}}>
+      <Container style={{flex: .3,}}>
           <Picker />
       </Container>
 
