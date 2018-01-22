@@ -133,21 +133,21 @@ export default class PickerExample extends Component {
 
   onAddCategory = obj =>{
     // const IdArr = this.state.categoryId
-    // const categoryId = IdArr.concat(Id) 
+    // const categoryId = IdArr.concat(Id)
     // this.setState({categoryId})
     // console.log(this.state.categoryId.concat(Id))
     this.setState({categoryObj: obj})
     // console.log(this.state.categoryObj, '127 Picker.js')
-    
+
 
   }
 
   render() {
     return (
       <Container style={{width: 330}} >
-        <Form style={{backgroundColor: 'white' , borderRadius: 20, marginTop: 20}}>
-          <FormItem style ={{marginTop: 20}}>
-            <Text style ={{fontWeight: 'bold'}} >1) Please enter your location (required):</Text>
+        <Form style={{backgroundColor: '#e35141'}}>
+          <FormItem>
+            <Text>1) Please enter your location (required):</Text>
           </FormItem>
           <FormItem>
             <Input
@@ -160,21 +160,21 @@ export default class PickerExample extends Component {
             />
           </FormItem>
           <FormItem>
-            <Text style ={{fontWeight: 'bold'}} >2) Choose # of Restaurant options you want:</Text>
+            <Text>2) Choose # of Restaurant options you want:</Text>
           </FormItem>
-          <FormItem style={{justifyContent: 'center', color: 'white', padding: 10}}>
-            <Picker style={{backgroundColor: 'lightgrey', width: 100, justifyContent:'center', fontWeight: 'bold'}}
+          <FormItem style={{justifyContent: 'center'}}>
+            <Picker style={{backgroundColor: 'white'}}
               iosHeader="Select one"
               mode="dropdown"
               selectedValue={this.state.numOptions}
               onValueChange={this.onValueChange.bind(this)}>
-              <Item label="One" value="1" style ={{fontWeight:'bold'}}/>
+              <Item label="One" value="1" />
               <Item label="Two" value="2" />
               <Item label="Three" value="3" />
             </Picker>
           </FormItem>
-          <FormItem >
-            <Text style ={{fontWeight: 'bold'}} >3) Choose any category that you want included in the search parameters:</Text>
+          <FormItem>
+            <Text> 3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <ScrollView>
           <FormItem style={{justifyContent: 'left', alignItems: 'left', flexDirection: 'column'}}>
@@ -190,11 +190,11 @@ export default class PickerExample extends Component {
                 />
             ))}
           </FormItem>
-          <FormItem style={{justifyContent: 'center', padding: 10}}>
-            <Button style={{backgroundColor: 'lightgrey'}}
+          <FormItem style={{justifyContent: 'left'}}>
+            <Button style={{backgroundColor: 'white'}}
               onPress={this.handleFormSubmit}
               >
-              <Text small style={{color: 'black', fontWeight:'bold', width:100, textAlign:'center'}}>Submit</Text>
+              <Text small style={{color: 'black'}}>Submit</Text>
             </Button>
           </FormItem>
         </ScrollView>
