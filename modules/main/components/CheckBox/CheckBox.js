@@ -15,16 +15,12 @@ export default class Checkbox extends PureComponent {
     componentDidMount() {
         this.setState({ checked: this.state.checked })
         // console.log("value of this.state.checked in cDM: " + this.state.checked);
-
     }
 
     componentDidUpdate(prevProps, prevState) {
         this.setState({ checked: this.state.checked })
         // console.log("State after cDU: " + this.state.categories + ' and ' + this.state.label);
         this.props.addCategory(this.state.categories)
-        
-        // console.log('24 checkbox', this.state.categories)
-
     }
 
     render() {
@@ -82,12 +78,7 @@ export default class Checkbox extends PureComponent {
       const { label } = this.props
       const categoryArr = this.props.categoryArr
       const checked = this.state.checked;
-        // const checked = 
-    //   const categoriesMap = this.props.categoryArr.map(categories=>{
-    //     return categories.label
-    //   })
-    //   console.log(label + "'s state when clicked was: " + checked + 'and' + this.state.label);
-      console.log(this.state.categories, 'CheckBox89 before check');
+    //   console.log(this.state.categories, 'CheckBox89 before check');
 
       if (checked===false) {
         this.setState({ checked : true});
@@ -98,34 +89,20 @@ export default class Checkbox extends PureComponent {
                 const catArr = this.state.categories
                 const categories = categoryArr[i];
                 this.setState({categories})
-                console.log(this.state, 'line 101  checkbox')
-                
-                // this.props.addCategory(this.state.categories)
-                
+                // console.log(this.state, 'line 101  checkbox')    
             }
         });
-        
-        // alert(this.state.arrIndex, '99 cb');
-        return this.state
-        // console.log(label +" this.state.checked2: " + this.state.checked);
 
+        return this.state
       }
 
       else if (checked===true) {
-        let categories = this.state.categories;
-        // let i = categories.length - 1;
-        // categories.splice(i, 1);
-        
+        let categories = this.state.categories;       
         this.setState({categories: categories.label});
         this.setState({ checked: false});
-        this.setState({label: ''})
-        // this.props.addCategory(this.state.categories)
-        
+        this.setState({label: ''})   
         return this.state
-        console.log(this.state, 'line 125  checkbox')
-        
-        // console.log(label + " this.state.checked3: " + this.state.checked);
-
+        // console.log(this.state, 'line 125  checkbox')
       }
     }
 }
