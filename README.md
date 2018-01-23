@@ -6,9 +6,20 @@ This guide was extremely helpful when it came to integrating Firebase into a Rea
 
 Below is a collection of screenshots from our functioning app displaying all facets of the full process:
 
-![alt text](./readmeGif/gif1.gif "Landing Page")
-![alt text](./readmeGif/gif2.gif "Demo of signup screen")
-![alt text](./readmeGif/gif3.gif "Demo of login when account already exists")
-![alt text](./readmeGif/gif4.gif "Demo of main search area")
-![alt text](./readmeGif/gif5.gif "Demo of picking number of restaurants")
-![alt text](./readmeGif/gif6.gif "Demo when thumbs up is pressed and redirect to foursquare website")
+Demo of Landing Page
+![alt text](./readmeGif/gif1.gif) 
+
+Demo of signup screen
+![alt text](./readmeGif/gif2.gif)
+
+Demo of login when account already exists
+![alt text](./readmeGif/gif3.gif)
+
+Demo of main search area
+![alt text](./readmeGif/gif4.gif)
+
+Demo of picking number of restaurants
+![alt text](./readmeGif/gif5.gif)
+
+Demo when thumbs up is pressed and redirect to foursquare website
+![alt text](./readmeGif/gif6.gif)
