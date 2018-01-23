@@ -6,14 +6,16 @@ import {Scene, Router, ActionConst, Stack} from 'react-native-router-flux';
 import Splash from '../modules/splash/Splash';
 import Results from '../modules/main/scenes/Results';
 import Form from '../modules/main/scenes/Form';
-import {headerImage} from './logo.png';
 
 import Welcome from '../modules/auth/scenes/Welcome';
 import Register from '../modules/auth/scenes/Register';
 import Login from '../modules/auth/scenes/Login';
 import ForgotPassword from '../modules/auth/scenes/ForgotPassword';
+import ImageSlider from "../modules/main/scenes/ImageSlider";
 
 import firebase from "../config/firebase"
+
+const headerImage = require('./logo.png');
 
 export default class extends React.Component {
     constructor() {
@@ -56,6 +58,7 @@ export default class extends React.Component {
             <Stack key="Main" initial={this.state.isLoggedIn}>
               <Scene key="Search" component={Form} title="Restaurant Search" initial={true} type={ActionConst.REPLACE}/>
               <Scene key="Results" component={Results} title="Results"/>
+              <Scene key="ImageSlider" component={ImageSlider} title="Image Slider"/>
 
             </Stack>
           </Scene>

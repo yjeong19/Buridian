@@ -24,10 +24,9 @@ export default class DecisionSection extends Component{
       }
     });
 
-
-        // console.log(this.props.image,"line 31 ====================================");
         return(
           <Container style={{ justifyContent: 'center', alignItems: 'center'}}>  
+
             <Content>
           <ScrollView>          
               <Card style={styles.image}>
@@ -35,19 +34,25 @@ export default class DecisionSection extends Component{
                   <Left>
                     <Thumbnail source={{uri: this.props.image}} />
                     <Body>
-                        <Text>{this.props.restaurantName}</Text>
-                          <Text note>{this.props.address}</Text>
-                          <Text note>{this.props.phone}</Text>
-                          <Text note>{this.props.website}</Text>
+                      <Text>{this.props.restaurantName}</Text>
+                        <Text note>{this.props.address}</Text>
+                        <Text note>{this.props.phone}</Text>
+                        <Text note>{this.props.website}</Text>
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
-                  <Image source={{uri: this.props.image}} style={{height: 200, width: 200, flex: 1}}/>
+                <CardItem cardBody
+                  style={{justifyContent: 'center', alignItems: 'center'}}
+                  onPress={this.props.handleImagePress}
+                  >
+                  <Image
+                  source={{uri: this.props.image}}
+                  style={{height: 200, width: 200, flex: -1}}
+                  />
                 </CardItem>
                 <CardItem>
                   <Left>
-                    <Button style={{backgroundColor: "red"}} onPress={console.log(this.props.api)}>
+                    <Button style={{backgroundColor: "red"}} onPress={this.props.randomized}>
                       <Icon name='thumbs-down' />
                     </Button>
                   </Left>
@@ -61,10 +66,12 @@ export default class DecisionSection extends Component{
                 </Right>
                 </CardItem>
               </Card>
+
               <Button onPress={this.props.randomized}>
                 <Icon name='shuffle' />
               </Button>
             </ScrollView>
+
             </Content>
           </Container>
         )

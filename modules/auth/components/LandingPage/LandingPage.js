@@ -8,9 +8,9 @@ export default class LandingPage extends React.Component {
 
   render() {
     return (
-      <Container style={styles.container}>
+      <Container style={{marginTop: 190}}>
         <Image style={{
-          height: 125,
+          height: 250,
           width: 230,
           marginLeft: 'auto',
           marginRight: 'auto'
@@ -20,7 +20,7 @@ export default class LandingPage extends React.Component {
           fontSize: 18
           }}>In Philosophy, "Buridian's Ass" is a thought experiment about a hungry donkey.</Text>
         <Image style={{
-          height: 120,
+          height: 125,
           width: 230,
           marginLeft: 'auto',
           marginRight: 'auto'

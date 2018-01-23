@@ -5,11 +5,10 @@ import {Container} from 'native-base';
 import {Button} from 'react-native-elements'
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
-import ImageSlider from '../components/ImageSlider';
 
 //import Checkbox
 import { color } from "../../../styles/Theme";
-import Picker from "../components/Picker";
+import {Picker} from "../components/Picker";
 import DecisionSection from "../components/DecisionSection";
 import YesOrNoButtons from "../components/YesOrNoButtons";
 import API from '../../../Utils/API'
@@ -39,8 +38,8 @@ class Results extends React.Component {
       }
 
       handlePhoto=()=>{
-        // console.log(this.state.restaurantId)
-        // console.log('---------line 43', this.state.restaurantId)
+        // console.log("this.props.placeholderImage: " + this.props.placeholderImage);
+        // this.setState({imageUrl: this.props.placeholderImage})
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
@@ -48,6 +47,8 @@ class Results extends React.Component {
           //   return photos.prefix + '300x500' + photos.suffix;
           // })
           /// this gives an array of links
+          // console.log("responseJson: " + responseJson.response.photos.items[0]);
+          console.log("this.placeholderImage: " + this.props.placeholderImage);
           const photoObject = responseJson.response.photos.items[0];
           let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
          
@@ -59,8 +60,6 @@ class Results extends React.Component {
       handleSettingsPress = ()=>{
         Alert.alert("settings");
       }
-
-
 
       handleRandomizeButton = ()=>{
         const categories = []
@@ -98,6 +97,11 @@ class Results extends React.Component {
         Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
       }
 
+      handleImagePress = () => {
+        console.log("image pressed");
+        Actions.ImageSlider();
+      }
+
 
     onSignOut() {
       this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this))
@@ -115,6 +119,7 @@ class Results extends React.Component {
 
       return (
         <Container style={{
+          flex: 1,
           backgroundColor: '#e35141',
           justifyContent: "center",
           alignItems: "center"}}>
@@ -128,20 +133,18 @@ class Results extends React.Component {
             phone={this.state.phone}
             website={this.state.website}
             fourSquarePage={this.handleYesButton}
-            />
-          <ImageSlider images={this.state.images}/>
+            handleImagePress={this.handleImagePress}
+          />
         </ScrollView>
-
-
-            <Button
-              raised
-              title={'LOG OUT'}
-              borderRadius={4}
-              backgroundColor={color.main}
-              containerViewStyle={{marginVertical:0, marginHorizontal:0}}
-              buttonStyle={{}} //optional
-              textStyle={{fontWeight: "500"}}
-              onPress={this.onSignOut.bind(this)}/>
+          <Button
+            raised
+            title={'LOG OUT'}
+            borderRadius={4}
+            backgroundColor={color.main}
+            containerViewStyle={{marginVertical:0, marginHorizontal:0}}
+            buttonStyle={{}} //optional
+            textStyle={{fontWeight: "500"}}
+            onPress={this.onSignOut.bind(this)}/>
         </Container>
       );
     }
