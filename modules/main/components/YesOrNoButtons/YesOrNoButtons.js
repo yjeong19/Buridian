@@ -4,7 +4,7 @@ import {Text} from 'react-native'
 
 export default class YesOrNoButtons extends Component {
   render (){
-    console.log(this)
+    // console.log(this)
     return(
       <Container>
         <Content>

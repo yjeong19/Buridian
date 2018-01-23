@@ -78,7 +78,7 @@ export default class Checkbox extends PureComponent {
       const { label } = this.props
       const categoryArr = this.props.categoryArr
       const checked = this.state.checked;
-      console.log(this.state.categories, 'CheckBox89 before check');
+    //   console.log(this.state.categories, 'CheckBox89 before check');
 
       if (checked===false) {
         this.setState({ checked : true});

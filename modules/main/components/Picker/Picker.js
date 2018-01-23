@@ -105,21 +105,18 @@ export default class PickerExample extends Component {
     };
   }
   onValueChange(value: integer) {
-    console.log(this.state.numOptions)
+    // console.log(this.state.numOptions)
     this.setState({
       numOptions: value
     });
   }
 
   componentDidUpdate(){
-    console.log('line 115---------------', this.state.categoryObj)
+    // console.log('line 115---------------', this.state.categoryObj)
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
-    // console.log(this.state.numOptions);
-    // console.log(this.state.location);
     if(this.state.location.trim() === ''){
       alert('Please complete the form')
     }
@@ -139,7 +136,7 @@ export default class PickerExample extends Component {
 
     if(typeof obj== 'object'){
     const IdArr = this.state.categoryObj
-    console.log(obj, IdArr, 'line 138')
+    // console.log(obj, IdArr, 'line 138')
       if (IdArr=== undefined){
         IdArr = []
       }
@@ -152,14 +149,14 @@ export default class PickerExample extends Component {
     }
     else if(typeof obj == 'string'){
       const categoryArr = this.state.categoryObj
-      console.log('line 151-------------\n', categoryArr)
+      // console.log('line 151-------------\n', categoryArr)
       if (categoryArr === undefined || categoryArr === []){
         categoryArr =[]
       }
       else{
       let categoryObj = categoryArr.forEach((catObj, i)=>{
         if(catObj.label === obj){
-          console.log('---------162', i)
+          // console.log('---------162', i)
          categoryArr.splice(i, 1)
          categoryObj = categoryArr
          this.setState({categoryObj})
@@ -183,7 +180,7 @@ export default class PickerExample extends Component {
               value={this.state.location}
               name="location"
               type="text"
-              placeholder="e.g. Arlington"
+              placeholder="e.g. Arlington, VA"
             />
           </FormItem>
           <FormItem>

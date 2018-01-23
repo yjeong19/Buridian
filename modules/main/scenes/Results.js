@@ -33,13 +33,14 @@ class Results extends React.Component {
         images: ["https://media.boingboing.net/wp-content/uploads/2017/03/surprised-cat-04.jpg", "https://www.hobartcity.com.au/files/assets/public/emergency-management/cat_and_dog-1024x899.jpg?w=1200"]
       }
 
-      componentDidMount(){
+      componentDidMount(){      
         this.handleRandomizeButton();
         // this.handlePhoto();
       }
 
       handlePhoto=()=>{
         // console.log(this.state.restaurantId)
+        // console.log('---------line 43', this.state.restaurantId)
         API.getPhoto(this.state.restaurantId)
         .then((response)=> response.json())
         .then((responseJson)=>{
@@ -50,37 +51,10 @@ class Results extends React.Component {
           const photoObject = responseJson.response.photos.items[0];
           let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
          
-          responseJson.response.photos 
-          ? this.setState({imageUrl}) 
-          : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
+          responseJson.response.photos.items[0] ? this.setState({imageUrl}) : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
         })
       }
          
-          // if(!responseJson.response.photos.items){
-          //   this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
-      //     //   console.log(this.state.url)
-      //     // }
-      //     // else{
-      //       // let imageUrl = photoObject.map(photos =>{
-      //       //   return photos.prefix + '300x500' + photos.suffix;
-      //       // })
-      //       /// this gives an array of links
-
-
-
-      //       console.log(imageUrl)
-      //     }
-      //   })
-      // }
-
-      handleAPI = ()=>{
-        API.getRestaurant()
-        .then((res)=> res.json())
-        .then((resJson)=>{
-          // console.log(resJson);
-        })
-
-      }
 
       handleSettingsPress = ()=>{
         Alert.alert("settings");
@@ -89,23 +63,34 @@ class Results extends React.Component {
 
 
       handleRandomizeButton = ()=>{
+        const categories = []
+        this.props.categoryObj.map(category=>{
+          console.log(category, 'map category')
+          categories.push(category.categoryID);
+        })
+
+        
         // console.log(this.props.categoryObj[0].categoryID, this.props.location)
-        API.getRestaurant(this.props.categoryObj[0].categoryID, this.props.location)
+        API.getRestaurant(categories.join(), this.props.location)
         .then((response)=> response.json())
         .then((data)=>{
+          // console.log(data, '------------line 79')
           // let data = JSON.parse(response._bodyInit);
           let i = Math.floor((Math.random() * data.response.venues.length) + 1);
           this.setState({restaurantName: data.response.venues[i].name});
-          this.setState({address: data.response.venues[i].location.formattedAddress[0]});
+          this.setState({address: data.response.venues[i].location.formattedAddress[0] ? data.response.venues[i].location.formattedAddress[0] : 'testing' });
           this.setState({phone: data.response.venues[i].contact.formattedPhone});
-          this.setState({website: data.response.venues[i].url});
-          this.setState({restaurantId: data.response.venues[i].id});
-          this.setState({fourSquarePage: data.response.venues[i].menu.url});
+          this.setState({website: data.response.venues[i].url ? data.response.venues[i].url : 'https://www.fousquare.com'});
+          //operator below needs to be changed for else
+          this.setState({restaurantId: data.response.venues[i].id ? data.response.venues[i].id :'4b0df699f964a520345323e3' });
+          this.setState({fourSquarePage: data.response.venues[i].menu.url ? data.response.venues[i].menu.url : 'https://www.foursquare.com'});
           // console.log(data.response.venues[i]);
           // console.log("4sq url" + data.response.venues[i].menu.url);
           this.handlePhoto();
-          console.log(this.props)
+          // console.log(this.props)
+          
         });
+        // console.log('line 68 ===================', categories, 'end ==========')
         // console.log(this.props);
       }
 
