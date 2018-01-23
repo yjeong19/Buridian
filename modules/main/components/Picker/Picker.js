@@ -101,7 +101,8 @@ export default class PickerExample extends Component {
       numOptions: 1,
       location: "",
       categories,
-      categoryObj: []
+      categoryObj: [],
+      placeholderImage: "http://us.yuneec.com/c.4198727/sca-dev-vinson/img/no_image_available.jpeg"
     };
   }
   onValueChange(value: integer) {
@@ -113,17 +114,18 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
+    console.log("Submit button pressed"); console.log(CheckBox.handleToggleChecked);
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
     if(this.state.location.trim() === ''){
-      alert('Please complete the form')
+      alert('Location is a required field')
     }
     else{
     Actions.Results({
       categoryObj: this.state.categoryObj,
       location: this.state.location,
-      counter: this.state.numOptions
+      counter: this.state.numOptions,
+      placeholderImage: this.state.placeholderImage
     });
   }
 
@@ -132,6 +134,13 @@ export default class PickerExample extends Component {
   };
 
   onAddCategory = obj =>{
+    // const IdArr = this.state.categoryId
+    // const categoryId = IdArr.concat(Id)
+    // this.setState({categoryId})
+    // console.log(this.state.categoryId.concat(Id))
+    this.setState({categoryObj: obj})
+    // console.log(this.state.categoryObj, '127 Picker.js')
+
 
     if(typeof obj== 'object'){
     const IdArr = this.state.categoryObj
@@ -139,7 +148,7 @@ export default class PickerExample extends Component {
       if (IdArr=== undefined){
         IdArr = []
       }
-    const categoryObj = IdArr.concat(obj) 
+    const categoryObj = IdArr.concat(obj)
     // this.setState({categoryId}
     // console.log(this.state.categoryId.concat(Id))
 
@@ -148,7 +157,6 @@ export default class PickerExample extends Component {
     }
     else if(typeof obj == 'string'){
       const categoryArr = this.state.categoryObj
-      console.log(this.state.categoryObj, 'line 151------------')
       if (categoryArr === undefined){
         categoryArr =this.state.categoryObj
       }
@@ -161,7 +169,7 @@ export default class PickerExample extends Component {
       })
 
     }
-   
+
 
   }
 
@@ -197,7 +205,7 @@ export default class PickerExample extends Component {
             </Picker>
           </FormItem>
           <FormItem>
-            <Text style ={{fontWeight: 'bold'}}>3) Choose any category that you want included in the search parameters:</Text>
+            <Text style ={{fontWeight: 'bold'}}> 3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <ScrollView>
           <FormItem style={{justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column'}}>
@@ -207,17 +215,18 @@ export default class PickerExample extends Component {
                 id={categories.id}
                 label={categories.label}
                 checked={this.state.checked}
-                // onChange={this.handleToggleChecked}
+                onChange={this.handleToggleChecked}
                 categoryArr = {this.state.categories}
                 addCategory={this.onAddCategory}
                 />
             ))}
           </FormItem>
           <FormItem style={{justifyContent: 'center', padding: 10}}>
-            <Button style={{backgroundColor: 'lightgrey', }}
-              onPress={this.handleFormSubmit}
-              >
-              <Text small style={{color: 'black'}}>Submit</Text>
+            <Button style={{backgroundColor: 'lightgrey' }}
+              onPress={this.handleFormSubmit}>
+              <Text style={{color: 'black'}}>
+                Submit
+              </Text>
             </Button>
           </FormItem>
         </ScrollView>

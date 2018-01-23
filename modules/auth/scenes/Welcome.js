@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 import LandingPage from '../components/LandingPage';
 
 import {Button} from 'react-native-elements'
@@ -13,25 +13,25 @@ class Welcome extends React.Component {
   render() {
     return (
       <AuthContainer>
-          <LandingPage />
-          <View style={styles.bottomContainer}>
-            <Button
-              raised
-              title={'Sign up'}
-              borderRadius={4}
-              containerViewStyle={styles.buttonContainer}
-              buttonStyle={{}}
-              textStyle={styles.buttonText}
-              onPress={Actions.Register}/>
-            <Button
-              raised
-              title={'Login'}
-              borderRadius={4}
-              containerViewStyle={[styles.buttonContainer]}
-              buttonStyle={{}}
-              textStyle={styles.buttonText}
-              onPress={Actions.Login}/>
-            </View>
+        <LandingPage />
+        <View style={styles.bottomContainer}>
+          <Button
+            raised
+            title={'Sign up'}
+            borderRadius={4}
+            containerViewStyle={styles.buttonContainer}
+            buttonStyle={{}}
+            textStyle={styles.buttonText}
+            onPress={Actions.Register}/>
+          <Button
+            raised
+            title={'Login'}
+            borderRadius={4}
+            containerViewStyle={[styles.buttonContainer]}
+            buttonStyle={{}}
+            textStyle={styles.buttonText}
+            onPress={Actions.Login}/>
+          </View>
       </AuthContainer>
         );
     }

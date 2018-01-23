@@ -19,13 +19,13 @@ const minorVersion = +splitVersion[1];
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
+        flex: 3,
         backgroundColor: '#222'
     },
     buttons: {
         height: 15,
-        marginTop: -15,
-        flex: 1,
+        // marginTop: -15,
+        flex: -1,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row'
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class ImageSlider extends Component {
+class ImageSlider extends Component {
     constructor(props) {
         super(props);
 
@@ -181,3 +181,6 @@ export default class ImageSlider extends Component {
         </View>);
     }
 }
+
+
+export default (ImageSlider);
