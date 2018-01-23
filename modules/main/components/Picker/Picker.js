@@ -112,6 +112,10 @@ export default class PickerExample extends Component {
     });
   }
 
+  componentDidUpdate(){
+    console.log('line 115---------------', this.state.categoryObj)
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Submit button pressed"); console.log(CheckBox.handleToggleChecked);
@@ -157,21 +161,23 @@ export default class PickerExample extends Component {
     }
     else if(typeof obj == 'string'){
       const categoryArr = this.state.categoryObj
-      if (categoryArr === undefined){
-        categoryArr =this.state.categoryObj
+      console.log('line 151-------------\n', categoryArr)
+      if (categoryArr === undefined || categoryArr === []){
+        categoryArr =[]
+
       }
+      else{
       let categoryObj = categoryArr.forEach((catObj, i)=>{
         if(catObj.label === obj){
-          alert('fuck')
-         categoryObj = categoryArr.splice(i, 1)
+          console.log('---------162', i)
+         categoryArr.splice(i, 1)
+         categoryObj = categoryArr
          this.setState({categoryObj})
         }
       })
-
     }
-
-
   }
+}
 
   render() {
     return (
