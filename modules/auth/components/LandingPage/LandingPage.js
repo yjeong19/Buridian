@@ -8,7 +8,7 @@ export default class LandingPage extends React.Component {
 
   render() {
     return (
-      <Container style={{marginTop: 30}}>
+      <Container style={{marginTop: 200}}>
         <Image style={{
           height: 250,
           width: 230,
