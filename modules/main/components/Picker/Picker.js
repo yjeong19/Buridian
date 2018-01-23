@@ -98,13 +98,15 @@ export default class PickerExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numOptions: "1",
+      numOptions: 1,
       location: "",
       categories,
-      categoryObj: {}
+      categoryObj: [],
+      placeholderImage: "http://us.yuneec.com/c.4198727/sca-dev-vinson/img/no_image_available.jpeg"
     };
   }
-  onValueChange(value: string) {
+  onValueChange(value: integer) {
+    console.log(this.state.numOptions)
     this.setState({
       numOptions: value
     });
@@ -112,7 +114,7 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed", console.log(CheckBox.handleToggleChecked));
+    console.log("Submit button pressed"); console.log(CheckBox.handleToggleChecked);
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
     if(this.state.location.trim() === ''){
@@ -122,14 +124,14 @@ export default class PickerExample extends Component {
     Actions.Results({
       categoryObj: this.state.categoryObj,
       location: this.state.location,
-      numOptions: this.state.numOptions
+      counter: this.state.numOptions,
+      placeholderImage: this.state.placeholderImage
     });
   }
 
     // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
   };
-
 
   onAddCategory = obj =>{
     // const IdArr = this.state.categoryId
@@ -140,14 +142,43 @@ export default class PickerExample extends Component {
     // console.log(this.state.categoryObj, '127 Picker.js')
 
 
+    if(typeof obj== 'object'){
+    const IdArr = this.state.categoryObj
+    console.log(obj, IdArr, 'line 138')
+      if (IdArr=== undefined){
+        IdArr = []
+      }
+    const categoryObj = IdArr.concat(obj)
+    // this.setState({categoryId}
+    // console.log(this.state.categoryId.concat(Id))
+
+    this.setState({categoryObj})
+    // console.log(this.state.categoryObj, '140 Picker.js')
+    }
+    else if(typeof obj == 'string'){
+      const categoryArr = this.state.categoryObj
+      if (categoryArr === undefined){
+        categoryArr =this.state.categoryObj
+      }
+      let categoryObj = categoryArr.forEach((catObj, i)=>{
+        if(catObj.label === obj){
+          alert('fuck')
+         categoryObj = categoryArr.splice(i, 1)
+         this.setState({categoryObj})
+        }
+      })
+
+    }
+
+
   }
 
   render() {
     return (
       <Container style={{width: 330}} >
-        <Form style={{backgroundColor: '#e35141'}}>
-          <FormItem>
-            <Text>1) Please enter your location (required):</Text>
+        <Form style={{backgroundColor: 'white', borderRadius: 20, marginTop: 20}}>
+          <FormItem style ={{marginTop: 20}}>
+            <Text style ={{fontWeight: 'bold'}}>1) Please enter your location (required):</Text>
           </FormItem>
           <FormItem>
             <Input
@@ -160,21 +191,21 @@ export default class PickerExample extends Component {
             />
           </FormItem>
           <FormItem>
-            <Text>2) Choose # of Restaurant options you want:</Text>
+            <Text style ={{fontWeight: 'bold'}}>2) Choose # of Restaurant options you want:</Text>
           </FormItem>
-          <FormItem style={{justifyContent: 'center'}}>
-            <Picker style={{backgroundColor: 'white'}}
+          <FormItem style={{justifyContent: 'center', color: 'white', padding: 10}}>
+            <Picker style={{backgroundColor: 'lightgrey', width: 100, justifyContent:'center'}}
               iosHeader="Select one"
               mode="dropdown"
               selectedValue={this.state.numOptions}
               onValueChange={this.onValueChange.bind(this)}>
-              <Item label="One" value="1" />
-              <Item label="Two" value="2" />
-              <Item label="Three" value="3" />
+              <Item label="One" value={1} />
+              <Item label="Two" value={2} />
+              <Item label="Three" value={3} />
             </Picker>
           </FormItem>
           <FormItem>
-            <Text>3) Choose any category that you want included in the search parameters:</Text>
+            <Text style ={{fontWeight: 'bold'}}> 3) Choose any category that you want included in the search parameters:</Text>
           </FormItem>
           <ScrollView>
           <FormItem style={{justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column'}}>
@@ -190,11 +221,12 @@ export default class PickerExample extends Component {
                 />
             ))}
           </FormItem>
-          <FormItem style={{justifyContent: 'flex-start'}}>
-            <Button style={{backgroundColor: 'white'}}
-              onPress={this.handleFormSubmit}
-              >
-              <Text small style={{color: 'black'}}>Submit</Text>
+          <FormItem style={{justifyContent: 'center', padding: 10}}>
+            <Button style={{backgroundColor: 'lightgrey' }}
+              onPress={this.handleFormSubmit}>
+              <Text style={{color: 'black'}}>
+                Submit
+              </Text>
             </Button>
           </FormItem>
         </ScrollView>

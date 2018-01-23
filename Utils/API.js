@@ -18,6 +18,7 @@ const API = {
 
   getPhoto: (restaurantId)=>{
     let photoURL = `https://api.foursquare.com/v2/venues/${restaurantId}/photos?&${clientID}&${clientSecret}&v=20180118`
+    console.log("photo url: " + photoURL);
     return fetch(photoURL);
   },
 

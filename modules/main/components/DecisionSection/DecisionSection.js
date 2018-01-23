@@ -7,6 +7,15 @@ import API from '../../../../Utils/API'
 
 
 export default class DecisionSection extends Component{
+  state={
+    counter: 0
+  }
+  // componentDidMount(){
+  //   // var counter = this.props.
+  //   this.setState({counter: this.props.counter});
+  //   console.log(this.props.counter);
+  // }
+
   render(){
     const styles = StyleSheet.create({
       image: {
@@ -16,7 +25,7 @@ export default class DecisionSection extends Component{
     });
 
         return(
-          <Container style={{flex: -1, alignItems: "center", justifyContent: "center"}}>
+          <Container style={{ justifyContent: 'center', alignItems: 'center'}}>
             <Content>
               <Card style={styles.image}>
                 <CardItem>
@@ -30,11 +39,13 @@ export default class DecisionSection extends Component{
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
+                <CardItem cardBody
+                  style={{justifyContent: 'center', alignItems: 'center'}}
+                  onPress={this.props.handleImagePress}
+                  >
                   <Image
                   source={{uri: this.props.image}}
                   style={{height: 200, width: 200, flex: -1}}
-                  onPress={this.props.handleImagePress}
                   />
                 </CardItem>
                 <CardItem>
