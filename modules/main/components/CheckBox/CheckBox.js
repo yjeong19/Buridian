@@ -89,7 +89,7 @@ export default class Checkbox extends PureComponent {
                 const catArr = this.state.categories
                 const categories = categoryArr[i];
                 this.setState({categories})
-                // console.log(this.state, 'line 101  checkbox')    
+                console.log(this.state, 'line 101  checkbox')    
             }
         });
 
@@ -102,7 +102,7 @@ export default class Checkbox extends PureComponent {
         this.setState({ checked: false});
         this.setState({label: ''})   
         return this.state
-        // console.log(this.state, 'line 125  checkbox')
+        console.log(this.state, 'line 125  checkbox')
       }
     }
 }
