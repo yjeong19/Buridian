@@ -36,6 +36,7 @@ class Results extends React.Component {
       componentDidMount(){      
         // this.handleRandomizeButton();
         // this.handlePhoto();
+        console.log('results--------39', this.props.counter)
       }
 
       // handlePhoto=()=>{
@@ -128,6 +129,7 @@ class Results extends React.Component {
           alignItems: "center"}}>
         {/* <ScrollView style={{flex:1}}> */}
           <DecisionSection
+            counter={this.props.counter}
             image={this.state.imageUrl}
             style={{flex: 1}}
             location={this.props.location}
@@ -139,7 +141,7 @@ class Results extends React.Component {
             fourSquarePage={this.handleYesButton}
             handleImagePress={this.handleImagePress}
             objArr = {this.props.categoryObj}
-            categoryObj = {this.props.categoryObj}
+            // categoryObj = {this.props.categoryObj}
           />
         {/* </ScrollView> */}
           <Button
