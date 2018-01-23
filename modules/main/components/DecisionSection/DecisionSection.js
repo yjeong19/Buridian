@@ -15,7 +15,7 @@ export default class DecisionSection extends Component{
     phone: "",
     website: "",
     restaurantId: '',
-    fourSquarePage: "",
+    fourSquarePage: "https://foursquare.com/",
     numOptions: "",
     categoryId: [],
     objArr: [],
@@ -79,7 +79,7 @@ export default class DecisionSection extends Component{
       this.setState({website: data.response.venues[i].url });
       //operator below needs to be changed for else
       this.setState({restaurantId: data.response.venues[i].id});
-      this.setState({fourSquarePage: data.response.venues[i].menu.url});
+      this.setState({fourSquarePage: data.response.venues[i].menu.url ===undefined ? 'https://foursquare.com/' : data.response.venues[i].menu.url});
       // console.log(data.response.venues[i]);
       // console.log("4sq url" + data.response.venues[i].menu.url);
     })
@@ -124,11 +124,12 @@ export default class DecisionSection extends Component{
       let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
       
       // responseJson.response.photos.items[0] ? this.setState({imageUrl}) : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
-      this.setState({imageUrl: imageUrl === '' ? 'http://lorempicsum.com/futurama/350/200/1' : imageUrl})
+      this.setState({imageUrl: imageUrl === '' || imageUrl === this.state.imageUrl || imageUrl===undefined ? 'http://lorempicsum.com/futurama/350/200/1' : imageUrl})
     })
     console.log(this.state);
     console.log("this.placeholderImage: " + imageUrl);
   }
+
   handleYesButton = () => {
     Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
   }
