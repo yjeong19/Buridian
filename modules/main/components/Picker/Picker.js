@@ -118,7 +118,7 @@ export default class PickerExample extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Submit button pressed"); console.log(CheckBox.handleToggleChecked);
+    console.log("Submit button pressed"); console.log(this.state.numOptions);
     // console.log(this.state.numOptions);
     // console.log(this.state.location);
     if(this.state.location.trim() === ''){
@@ -208,6 +208,7 @@ export default class PickerExample extends Component {
               <Item label="One" value={1} />
               <Item label="Two" value={2} />
               <Item label="Three" value={3} />
+              <Item label="Ten (Demo/Test)" value={10} />
             </Picker>
           </FormItem>
           <FormItem>
