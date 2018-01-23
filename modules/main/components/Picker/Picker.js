@@ -181,7 +181,7 @@ export default class PickerExample extends Component {
 
   render() {
     return (
-      <Container style={{width: 330}} >
+      <Container style={{width: 330, paddingBottom: 100, marginBottom: 100}} >
         <Form style={{backgroundColor: 'white', borderRadius: 20, marginTop: 20}}>
           <FormItem style ={{marginTop: 20}}>
             <Text style ={{fontWeight: 'bold'}}>1) Please enter your location (required):</Text>
