@@ -25,7 +25,7 @@ const API = {
   getRestaurant: (Ids, near)=>{
     //Restaurant in ID
     // let near = "";
-    const categoryId = "categoryId=4bf58dd8d48988d1c4941735";
+    const categoryId = "categoryId=";
     let categories;
     if (Ids){
       categories = categoryId + ',' + Ids

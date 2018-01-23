@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, Image, StyleSheet, Alert } from 'react-native';
+import {Linking, ScrollView, Image, StyleSheet, Alert } from 'react-native';
 import { View, DeckSwiper, Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
 import API from '../../../../Utils/API'
 // import ImageSlider from 'react-native-image-slider'
@@ -37,7 +37,7 @@ export default class DecisionSection extends Component{
   componentDidUpdate(){
     // console.log(counter)
     // console.log(this.state, '=================' , counter)
-    
+    console.log(this.state);
   }
 
 
@@ -74,17 +74,20 @@ export default class DecisionSection extends Component{
       // // let data = JSON.parse(response._bodyInit);
       let i = Math.floor((Math.random() * data.response.venues.length) + 1);
       this.setState({restaurantName: data.response.venues[i].name});
-      this.setState({address: data.response.venues[i].location.formattedAddress[0] ? data.response.venues[i].location.formattedAddress[0] : 'testing' });
+      this.setState({address: data.response.venues[i].location.formattedAddress[0]});
       this.setState({phone: data.response.venues[i].contact.formattedPhone});
-      this.setState({website: data.response.venues[i].url ===undefined ? 'https://www.fousquare.com' : data.response.venues[i].url});
+      this.setState({website: data.response.venues[i].url });
       //operator below needs to be changed for else
-      this.setState({restaurantId: data.response.venues[i].id ? data.response.venues[i].id :'4b0df699f964a520345323e3' });
-      this.setState({fourSquarePage: data.response.venues[i].menu.url ==='' ? data.response.venues[i].menu.url : 'https://www.foursquare.com'});
+      this.setState({restaurantId: data.response.venues[i].id});
+      this.setState({fourSquarePage: data.response.venues[i].menu.url});
       // console.log(data.response.venues[i]);
       // console.log("4sq url" + data.response.venues[i].menu.url);
+    })
+    .then(()=>{
       this.handlePhoto();
+
+    })
       
-    });
     // console.log('line 68 ===================', this.state, 'end ==========')
     // console.log(this.props);
     // alert('fuck dude')
@@ -93,7 +96,16 @@ export default class DecisionSection extends Component{
     counter --
   }
   else{
-    alert('GO ON YELP DUDE')
+    Alert.alert(
+      "Go on Yelp",
+      "You're defeating the purpose of the App!",
+      [
+        // {text: 'I am sorry', onPress: () => console.log('Ask me later pressed')},
+        {text: "I'm Sorry", onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+        // {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+      { cancelable: false }
+    )
   }
 }
 
@@ -112,10 +124,13 @@ export default class DecisionSection extends Component{
       let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
       
       // responseJson.response.photos.items[0] ? this.setState({imageUrl}) : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
-      this.setState({imageUrl: imageUrl===''? 'http://lorempicsum.com/futurama/350/200/1': imageUrl})
+      this.setState({imageUrl: imageUrl === '' ? 'http://lorempicsum.com/futurama/350/200/1' : imageUrl})
     })
     console.log(this.state);
     console.log("this.placeholderImage: " + imageUrl);
+  }
+  handleYesButton = () => {
+    Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
   }
 
   render(){
@@ -126,75 +141,7 @@ export default class DecisionSection extends Component{
       }
     });
 
-
-    const cards = 
-  [ 
-       {
-      text: 'card one',
-      name: 'one',
-      image: require('../CheckBox/checked.png')
-    },
-    {
-      text: 'card one',
-      name: 'one',
-      image: require('../CheckBox/checked.png')
-    }
-  ]
-  
-
-  const cards2 = this.props.objArr
-  // console.log(cards2, '--------------------116')
         return(
-          // <Container style={{ justifyContent: 'center', alignItems: 'center'}}>  
-
-          //   <Content>
-          // <ScrollView>          
-          //     <Card style={styles.image}>
-          //       <CardItem>
-          //         <Left>
-          //           <Thumbnail source={{uri: this.props.image}} />
-          //           <Body>
-          //             <Text>{this.props.restaurantName}</Text>
-          //               <Text note>{this.props.address}</Text>
-          //               <Text note>{this.props.phone}</Text>
-          //               <Text note>{this.props.website}</Text>
-          //           </Body>
-          //         </Left>
-          //       </CardItem>
-          //       <CardItem cardBody
-          //         style={{justifyContent: 'center', alignItems: 'center'}}
-          //         onPress={this.props.handleImagePress}
-          //         >
-          //         <Image
-          //         source={{uri: this.props.image}}
-          //         style={{height: 200, width: 200, flex: -1}}
-          //         />
-          //       </CardItem>
-          //       <CardItem>
-          //         <Left>
-          //           <Button style={{backgroundColor: "red"}} onPress={this.props.randomized}>
-          //             <Icon name='thumbs-down' />
-          //           </Button>
-          //         </Left>
-          //       <Body>
-          //         <Text>Do you want to eat here?</Text>
-          //       </Body>
-          //       <Right>
-          //         <Button style={{backgroundColor: "green"}} onPress={this.props.fourSquarePage}>
-          //           <Icon name='thumbs-up' />
-          //         </Button>
-          //       </Right>
-          //       </CardItem>
-          //     </Card>
-
-          //     <Button onPress={this.props.randomized}>
-          //       <Icon name='shuffle' />
-          //     </Button>
-          //   </ScrollView>
-
-          //   </Content>
-          // {/* </Container> */}
-
 
           <Container>
           <View style={styles.image}>
@@ -207,7 +154,7 @@ export default class DecisionSection extends Component{
                   <CardItem style={{justifyContent: 'center', alignItems: 'center'}}
                   >
                     <Left>
-                      <Thumbnail source={{uri: this.state.imageUrl ==='' ? 'http://lorempicsum.com/futurama/350/200/1' : this.state.imageUrl}} />
+                      <Thumbnail source={{uri: this.state.imageUrl}} />
                       <Body>
                         <Text>{this.state.restaurantName}</Text>
                         <Text note>{this.state.address}</Text>
@@ -216,11 +163,22 @@ export default class DecisionSection extends Component{
                     </Left>
                   </CardItem>
                   <CardItem cardBody>
-                    <Image style={{ height: 300, flex: 1 }} source={{uri: this.state.imageUrl === ''? 'http://lorempicsum.com/futurama/350/200/1': this.state.imageUrl}} />
+                    <Image style={{ height: 300, flex: 1 }} source={{uri: this.state.imageUrl}} />
                   </CardItem>
                   <CardItem>
-                    <Icon name="heart" style={{ color: '#ED4A6A' }} />
-                    <Text>{item.name}</Text>
+                    <Left>
+                      <Button style={{backgroundColor: "red"}} onPress={this.handleRandomizeButton}>
+                        <Icon name='thumbs-down' />
+                      </Button>
+                    </Left>
+                  <Body>
+                    <Text>Do you want to eat here?</Text>
+                  </Body>
+                  <Right>
+                    <Button style={{backgroundColor: "green"}} onPress={this.handleYesButton}>
+                      <Icon name='thumbs-up' />
+                    </Button>
+                  </Right>
                   </CardItem>
                 </Card>
               }

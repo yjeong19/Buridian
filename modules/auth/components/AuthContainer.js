@@ -6,7 +6,7 @@ import styles from "../styles"
 export default class AuthContainer extends React.Component {
     render() {
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView>
                 {this.props.children}
             </ScrollView>
         );

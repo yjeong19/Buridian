@@ -18,7 +18,7 @@ const categories = [
   {
     "id": 2,
     "label": "Chinese",
-    "categoryID": "4bf58dd8d48988d10e941735",
+    "categoryID": "4bf58dd8d48988d145941735",
     "clicked": false,
     "placeholderImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/255px-Flag_of_the_People%27s_Republic_of_China.svg.png"
   },
