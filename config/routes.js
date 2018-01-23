@@ -47,7 +47,7 @@ export default class extends React.Component {
             <Stack key="Auth" initial={!this.state.isLoggedIn}>
               <Scene key="Welcome" component={Welcome} renderTitle={() => (
                 <View>
-                  <Image source={headerImage} />
+                  <Image style={{width: 165, height: 30}} source={headerImage} />
                 </View>
               )} initial={true} />
               <Scene key="Register" component={Register} title="Register"/>
