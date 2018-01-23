@@ -82,9 +82,12 @@ export default class DecisionSection extends Component{
       this.setState({fourSquarePage: data.response.venues[i].menu.url});
       // console.log(data.response.venues[i]);
       // console.log("4sq url" + data.response.venues[i].menu.url);
+    })
+    .then(()=>{
       this.handlePhoto();
+
+    })
       
-    });
     // console.log('line 68 ===================', this.state, 'end ==========')
     // console.log(this.props);
     // alert('fuck dude')
