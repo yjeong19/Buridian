@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Alert } from 'react-native';
+import {ScrollView, Image, StyleSheet, Alert } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Title,Text, Button, Icon, Left, Body, Right } from 'native-base';
 import API from '../../../../Utils/API'
 // import ImageSlider from 'react-native-image-slider'
@@ -27,8 +27,9 @@ export default class DecisionSection extends Component{
 
         console.log(this.props.image,"line 31 ====================================");
         return(
-          <Container style={{ justifyContent: 'center', alignItems: 'center'}}>            
+          <Container style={{ justifyContent: 'center', alignItems: 'center'}}>  
             <Content>
+          <ScrollView>          
               <Card style={styles.image}>
                 <CardItem>
                   <Left>
@@ -63,6 +64,7 @@ export default class DecisionSection extends Component{
               <Button onPress={this.props.randomized}>
                 <Icon name='shuffle' />
               </Button>
+            </ScrollView>
             </Content>
           </Container>
         )

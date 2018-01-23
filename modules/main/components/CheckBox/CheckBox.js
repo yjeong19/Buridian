@@ -23,7 +23,7 @@ export default class Checkbox extends PureComponent {
         // console.log("State after cDU: " + this.state.categories + ' and ' + this.state.label);
         this.props.addCategory(this.state.categories)
         
-        console.log('24 checkbox', this.state.categories)
+        // console.log('24 checkbox', this.state.categories)
 
     }
 
