@@ -8,8 +8,9 @@ export default class AuthContainer extends React.Component {
         return (
             <ScrollView style={{flex: 1,
             backgroundColor: '#e35141',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
+            // alignItems: 'center',
+            // justifyContent: 'center'
+            }}>
                 {this.props.children}
             </ScrollView>
         );
