@@ -25,7 +25,7 @@ export default class DecisionSection extends Component{
   //   this.setState({counter: this.props.counter});
   //   console.log(this.props.counter);
   // }
-  
+
   componentDidMount(){
     this.handleRandomizeButton()
     // const counter = this.props.counter
@@ -41,18 +41,9 @@ export default class DecisionSection extends Component{
   }
 
 
-  handleSwipeRight(){
-    Alert.alert(
-      "You are Buridian's Ass!!!",
-      'Pay $1,000,000 to unlock feature',
-      [
-        {text: 'I am sorry', onPress: () => console.log('Ask me later pressed')},
-        {text: 'I Know', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        // {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ],
-      { cancelable: false }
-    )
-    // alert("You are Buridian's Ass\n Pay $1,000,000")
+  handleSwipeRight = () => {
+    Alert.alert("Enjoy your meal");
+    Linking.openURL(this.state.fourSquarePage).catch(err => console.error('An error occurred', err));
   }
 
 
@@ -63,7 +54,7 @@ export default class DecisionSection extends Component{
     })
     console.log(categories, 'map category')
 
-  if(counter > 0){    
+  if(counter > 0){
     // console.log(this.props.categoryObj[0].categoryID, this.props.location)
     API.getRestaurant(categories.join(), this.props.location)
     .then((response)=> response.json())
@@ -87,17 +78,12 @@ export default class DecisionSection extends Component{
       this.handlePhoto();
 
     })
-      
-    // console.log('line 68 ===================', this.state, 'end ==========')
-    // console.log(this.props);
-    // alert('fuck dude')
-    // let counter = this.state.counter
-    // this.setState({counter: counter --});
+
     counter --
   }
   else{
     Alert.alert(
-      "Go on Yelp",
+      "Just go to Yelp",
       "You're defeating the purpose of the App!",
       [
         // {text: 'I am sorry', onPress: () => console.log('Ask me later pressed')},
@@ -122,7 +108,7 @@ export default class DecisionSection extends Component{
       // console.log("responseJson: " + responseJson.response.photos.items[0]);
       const photoObject = responseJson.response.photos.items[0];
       let imageUrl = photoObject.prefix + '300x500' + photoObject.suffix;
-      
+
       // responseJson.response.photos.items[0] ? this.setState({imageUrl}) : this.setState({imageUrl: 'http://lorempicsum.com/futurama/350/200/1'})
       this.setState({imageUrl: imageUrl === '' || imageUrl === this.state.imageUrl || imageUrl===undefined ? 'http://lorempicsum.com/futurama/350/200/1' : imageUrl})
     })
@@ -147,9 +133,9 @@ export default class DecisionSection extends Component{
           <Container>
           <View style={styles.image}>
             <DeckSwiper
-              dataSource={[this.state]} 
+              dataSource={[this.state]}
               onSwipeLeft={this.handleRandomizeButton}
-              onSwipeRight={this.handleSwipeRight}              
+              onSwipeRight={this.handleSwipeRight}
               renderItem={item =>
                 <Card style={{ elevation: 3 }} style={{justifyContent: 'center', alignItems: 'center'}}>
                   <CardItem style={{justifyContent: 'center', alignItems: 'center'}}

@@ -7,6 +7,7 @@ import API from '../../../../Utils/API'
 import {Actions} from 'react-native-router-flux';
 import Checkbox from "../CheckBox/CheckBox";
 
+
 const categories = [
   {
     "id": 1,
@@ -117,14 +118,16 @@ export default class PickerExample extends Component {
   }
 
   handleResetForm = event => {
-    Actions.Main();
+    this.setState({location: ""});
+    this.setState({numOptions: 1 });
+    this.setState({counter: 1});
+    Actions.refresh();
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Submit button pressed"); console.log(this.state.numOptions);
-    // console.log(this.state.numOptions);
-    // console.log(this.state.location);
+
     if(this.state.location.trim() === ''){
       alert('Location is a required field')
     }
@@ -136,8 +139,6 @@ export default class PickerExample extends Component {
       placeholderImage: this.state.placeholderImage
     });
   }
-
-    // this.props.API('4bf58dd8d48988d10f941735', 'Fairfax')
 
   };
 
@@ -239,12 +240,12 @@ export default class PickerExample extends Component {
                 Submit
               </Text>
             </Button>
-            {/*<Button style={{backgroundColor: 'lightgrey'}}
+            <Button style={{backgroundColor: 'lightgrey'}}
               onPress={this.handleResetForm}>
               <Text style={{color: 'black'}}>
               Reset Form
               </Text>
-            </Button>*/}
+            </Button>
           </FormItem>
         </ScrollView>
         </Form>

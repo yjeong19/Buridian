@@ -27,7 +27,6 @@ class Home extends React.Component {
         restaurantId: '',
         fourSquarePage: "",
         numOptions: "",
-        asian: false
       }
 
       componentDidMount(){
