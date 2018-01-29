@@ -116,6 +116,10 @@ export default class PickerExample extends Component {
     // console.log('line 115---------------', this.state.categoryObj)
   }
 
+  handleResetForm = event => {
+    Actions.Main();
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Submit button pressed"); console.log(this.state.numOptions);
@@ -184,7 +188,7 @@ export default class PickerExample extends Component {
       <Container style={{width: 330, paddingBottom: 100, marginBottom: 100}} >
         <Form style={{backgroundColor: 'white', borderRadius: 20, marginTop: 20}}>
           <FormItem style ={{marginTop: 20}}>
-            <Text style ={{fontWeight: 'bold'}}>1) Please enter your location (required):</Text>
+            <Text style ={{fontWeight: 'bold'}}>1) Please enter your location (required) as either City, State or by Zip Code:</Text>
           </FormItem>
           <FormItem>
             <Input
@@ -197,7 +201,7 @@ export default class PickerExample extends Component {
             />
           </FormItem>
           <FormItem>
-            <Text style ={{fontWeight: 'bold'}}>2) Choose # of Restaurant options you want:</Text>
+            <Text style ={{fontWeight: 'bold'}}>2) Choose # of Restaurant options you want (how many times you can say "NO" to Buridian's recommendation):</Text>
           </FormItem>
           <FormItem style={{justifyContent: 'center', color: 'white', padding: 10}}>
             <Picker style={{backgroundColor: 'lightgrey', width: 100, justifyContent:'center'}}
@@ -208,7 +212,7 @@ export default class PickerExample extends Component {
               <Item label="One" value={1} />
               <Item label="Two" value={2} />
               <Item label="Three" value={3} />
-              <Item label="Ten (Demo/Test)" value={10} />
+              {/*<Item label="Ten (Demo/Test)" value={10} />*/}
             </Picker>
           </FormItem>
           <FormItem>
@@ -228,13 +232,19 @@ export default class PickerExample extends Component {
                 />
             ))}
           </FormItem>
-          <FormItem style={{justifyContent: 'center', padding: 10}}>
-            <Button style={{backgroundColor: 'lightgrey' }}
+          <FormItem style={{justifyContent: 'center', justifyContent: 'space-between'}}>
+            <Button style={{backgroundColor: 'lightgrey'}}
               onPress={this.handleFormSubmit}>
               <Text style={{color: 'black'}}>
                 Submit
               </Text>
             </Button>
+            {/*<Button style={{backgroundColor: 'lightgrey'}}
+              onPress={this.handleResetForm}>
+              <Text style={{color: 'black'}}>
+              Reset Form
+              </Text>
+            </Button>*/}
           </FormItem>
         </ScrollView>
         </Form>
