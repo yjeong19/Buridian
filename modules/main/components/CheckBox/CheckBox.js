@@ -74,7 +74,7 @@ export default class Checkbox extends PureComponent {
         )
     }
 
-    handleToggleChecked = () => {   
+    handleToggleChecked = () => {
       const { label } = this.props
       const categoryArr = this.props.categoryArr
       const checked = this.state.checked;
@@ -89,7 +89,6 @@ export default class Checkbox extends PureComponent {
                 const catArr = this.state.categories
                 const categories = categoryArr[i];
                 this.setState({categories})
-                console.log(this.state, 'line 101  checkbox')    
             }
         });
 
@@ -97,12 +96,11 @@ export default class Checkbox extends PureComponent {
       }
 
       else if (checked===true) {
-        let categories = this.state.categories;       
+        let categories = this.state.categories;
         this.setState({categories: categories.label});
         this.setState({ checked: false});
-        this.setState({label: ''})   
+        this.setState({label: ''})
         return this.state
-        console.log(this.state, 'line 125  checkbox')
       }
     }
 }
